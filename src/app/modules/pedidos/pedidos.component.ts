@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-pedidos',
@@ -22,7 +23,7 @@ export class PedidosComponent implements OnInit {
       "proxy": this.proxy
     }
 
-    this.reqGeneric.post('https://qa-gw.eprepay.com.br/esppvcn/v1.0.0/cartaovirtual/saldo', obj).subscribe(
+    this.reqGeneric.post(`${environment.urlBase}/saldo`, obj).subscribe(
       (res: any) => {
         this.saldo = res;
       },

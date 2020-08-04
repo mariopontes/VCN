@@ -1,7 +1,7 @@
-<app-header></app-header>
+<app-header *ngIf="!isLogin"></app-header>
 
 <div class="d-flex">
-    <app-side-menu></app-side-menu>
+    <app-side-menu *ngIf="!isLogin"></app-side-menu>
 
     <router-outlet></router-outlet>
 </div>

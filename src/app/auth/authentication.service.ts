@@ -28,6 +28,7 @@ export class AuthenticationService {
     return this.http.post(environment.wos2, params.toString(), { headers })
       .pipe(map(user => {
         sessionStorage.setItem('token', JSON.stringify(user));
+        this.currentUser = user;
         return user;
       }));
   }

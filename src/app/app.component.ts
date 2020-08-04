@@ -10,8 +10,8 @@ export class AppComponent {
   title = 'VCN';
   isLogin: boolean = false;
 
-  constructor() {
-    location.pathname === '/login' ? this.isLogin = true : this.isLogin = false;
+  constructor(private router: Router) {
+    this.router.events.subscribe(e => location.pathname === '/login' ? this.isLogin = true : this.isLogin = false)
   }
 
 }

@@ -1,19 +1,42 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class=" navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-header">
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" routerLink="/menu">Menu <span class="sr-only">(current)</span></a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+    <div class="d-flex w-100 justify-content-between">
+        <div class="col-md-3" style="max-width: 195px;">
+            <div class="brand_logo_container pointer">
+                <img src="../../../../assets/images/edenred_logo.png" class="brand_logo" alt="Logo">
+            </div>
+        </div>
+
+        <div class="col-md-5 d-flex justify-content-center align-items-center">
+            <div class="w-100 d-flex">
+
+                <div class="dropdown show m-r-25">
+                    <a class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown"> Empresas </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item">Accentiv Serviços tecnologia da informação S/A
+                            <br> <small>CPNJ: 02.388.006/0001-03</small>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="dropdown show">
+                    <a class="dropdown-toggle" id="dropdownMenuLink2" data-toggle="dropdown"> Produtos </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                        <a class="dropdown-item">Produto 1</a>
+                        <a class="dropdown-item">Produto 2</a>
+                        <a class="dropdown-item">Produto 3</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4  d-flex justify-content-center align-items-end flex-column">
+            <div>Olá, Mário Pontes</div>
+            <div>Saldo: R$200,00</div>
+        </div>
+
     </div>
 </nav>

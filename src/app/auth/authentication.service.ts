@@ -38,7 +38,6 @@ export class AuthenticationService {
   }
 
   isAuthenticated(): boolean {
-
     let token = sessionStorage.getItem('token');
 
     if (token) {

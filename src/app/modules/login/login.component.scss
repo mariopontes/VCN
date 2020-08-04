@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     overflow: auto;
-    background: #60a3bc !important;
+    background-image: linear-gradient(-70deg, #d52b1e -22%, #ffe282 86%);
 }
 
 .user_card {
@@ -14,7 +14,7 @@
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
-    background: #f39c12;
+    background: #e6e6e6;
     position: relative;
     display: flex;
     justify-content: center;
@@ -28,26 +28,25 @@
 .brand_logo_container {
     position: absolute;
     height: 170px;
-    width: 170px;
-    top: -75px;
-    border-radius: 50%;
-    background: #60a3bc;
-    padding: 10px;
+    width: 300px;
+    top: 0;
+    background: transparent;
+    padding: 0;
     text-align: center;
 }
 .brand_logo {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    border: 2px solid white;
+    height: auto;
+    width: 175px;
+    border-radius: 0;
+    border: 0;
 }
 .form_container {
     margin-top: 100px;
 }
 .login_btn {
     width: 100%;
-    background: #c0392b !important;
-    color: white !important;
+    background: #d52b1e !important;
+    color: #fff;
 }
 .login_btn:focus {
     box-shadow: none !important;
@@ -57,8 +56,8 @@
     padding: 0 2rem;
 }
 .input-group-text {
-    background: #c0392b !important;
-    color: white !important;
+    background: #d52b1e !important;
+    color: #fff !important;
     border: 0 !important;
     border-radius: 0.25rem 0 0 0.25rem !important;
 }
@@ -68,5 +67,5 @@
     outline: 0px !important;
 }
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-    background-color: #c0392b !important;
+    background-color: #00bff0 !important;
 }

@@ -1,1 +1,21 @@
-<p>pedidos works!</p>
+<form>
+    <div class="d-flex">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Example Proxy: 1400101860799451</label>
+                <input type="text" class="form-control" name="proxy" [(ngModel)]="proxy">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <button type="button" class="btn btn-primary" style="margin-top: 32px;" (click)="getSaldo()">Obter Saldo</button>
+        </div>
+    </div>
+</form>
+
+<div class="col-md-12">
+    <div *ngIf="saldo" class="form-group">
+        <p> Saldo : {{saldo.saldo}}</p>
+        <p> esppRef : {{saldo.esppRef}}</p>
+    </div>
+</div>

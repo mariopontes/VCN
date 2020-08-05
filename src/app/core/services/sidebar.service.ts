@@ -30,19 +30,19 @@ export class SidebarService {
             submenus: [
                 {
                     title: 'Solicitar Cartão',
-                    url: '/relatorios'
+                    url: '/pedidos/cartao'
                 },
                 {
                     title: 'Solicitar Cartão + Carga',
-                    url: '/pedidos'
+                    url: '/pedidos/cartaoecarga'
                 },
                 {
                     title: 'Solicitar Carga',
-                    url: '/pedidos'
+                    url: '/pedidos/carga'
                 },
                 {
                     title: 'Consulta',
-                    url: '/pedidos'
+                    url: '/pedidos/consulta'
                 },
             ]
         }

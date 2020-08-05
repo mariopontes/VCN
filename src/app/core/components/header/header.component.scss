@@ -33,3 +33,12 @@
     color: #162056;
     cursor: pointer;
 }
+
+.fix-header {
+    height: 85px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}

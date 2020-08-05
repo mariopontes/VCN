@@ -10,7 +10,11 @@ export class AuthenticationService {
 
   currentUser: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    let token = sessionStorage.getItem('token');
+
+    token ? this.currentUser = JSON.parse(token) : null;
+  }
 
   login(username: string, password: string) {
     let params = new URLSearchParams();

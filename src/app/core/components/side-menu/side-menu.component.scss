@@ -50,10 +50,10 @@
 
 .sidebar {
     width: 280px;
-    height: calc(100% - 85px);
+    height: calc(100% - 100px);
     max-height: 100%;
     position: fixed;
-    top: 85px;
+    top: 100px;
     left: 0px;
     z-index: 999;
     transition: left 0.3s ease;
@@ -502,6 +502,7 @@ $img-shadow-color: rgba(0, 0, 0, 0.5);
             left: 0;
             // background-color: $img-bg-sidebar-wrapper;
             background: #343a40;
+            // background: #162056;
         }
 
         .sidebar-profile,

@@ -23,17 +23,25 @@ export class SidebarService {
             // },
         },
         {
-            title: 'Componenents',
+            title: 'Pedidos',
             icon: 'far fa-gem',
             active: false,
             type: 'dropdown',
             submenus: [
                 {
-                    title: 'Relatórios',
+                    title: 'Solicitar Cartão',
                     url: '/relatorios'
                 },
                 {
-                    title: 'Pedidos',
+                    title: 'Solicitar Cartão + Carga',
+                    url: '/pedidos'
+                },
+                {
+                    title: 'Solicitar Carga',
+                    url: '/pedidos'
+                },
+                {
+                    title: 'Consulta',
                     url: '/pedidos'
                 },
             ]

@@ -35,10 +35,18 @@
 }
 
 .fix-header {
-    height: 85px;
+    height: 100px;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1;
+}
+
+.dropdown-menu.show {
+    padding: 5px;
+}
+
+.dropdown-item {
+    padding: 10px;
 }

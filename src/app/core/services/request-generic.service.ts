@@ -26,29 +26,25 @@ export class RequestGenericService {
 
   get(url: string, useHeaders?: boolean) {
     useHeaders == true || useHeaders == undefined ? this.setHeaders() : null;
-    return this.http.get(url, this.httpOptions).pipe(
-      catchError(this.handleError)
+    return this.http.get(url, this.httpOptions).pipe(catchError(this.handleError)
     )
   }
 
   post(url: string, body: object, useHeaders?: boolean) {
     useHeaders == true || useHeaders == undefined ? this.setHeaders() : null;
-    return this.http.post(url, body, this.httpOptions).pipe(
-      catchError(this.handleError)
+    return this.http.post(url, body, this.httpOptions).pipe(catchError(this.handleError)
     )
   }
 
   update(url: string, body: object, useHeaders?: boolean) {
     useHeaders == true || useHeaders == undefined ? this.setHeaders() : null;
-    return this.http.put(url, body, this.httpOptions).pipe(
-      catchError(this.handleError)
+    return this.http.put(url, body, this.httpOptions).pipe(catchError(this.handleError)
     )
   }
 
   delete(url: string, useHeaders?: boolean) {
     useHeaders == true || useHeaders == undefined ? this.setHeaders() : null;
-    return this.http.delete(url, this.httpOptions).pipe(
-      catchError(this.handleError)
+    return this.http.delete(url, this.httpOptions).pipe(catchError(this.handleError)
     )
   }
 
@@ -67,29 +63,9 @@ export class RequestGenericService {
 
     Toast.fire({
       icon: 'error',
-      title: 'Não foi possivel realizar essa'
+      title: 'Não foi possivel realizar essa transação'
     })
 
     return throwError(error);
-  }
-
-
-  showAlert() {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 4000,
-      timerProgressBar: true,
-      onOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
-
-    Toast.fire({
-      icon: 'error',
-      title: 'Não foi possivel realizar essa'
-    })
   }
 }

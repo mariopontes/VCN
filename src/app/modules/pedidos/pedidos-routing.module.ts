@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'cartao', component: CartaoComponent },
   { path: 'cartaoecarga', component: CartaoecargaComponent },
   { path: 'carga', component: CargaComponent },
-  { path: 'consulta', component: ConsultaComponent }
+  { path: 'consulta', component: ConsultaComponent },
+  { path: '**', redirectTo: 'consulta', pathMatch: 'full' }
 ];
 
 @NgModule({

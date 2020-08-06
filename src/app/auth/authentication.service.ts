@@ -29,7 +29,7 @@ export class AuthenticationService {
         'Authorization': 'Basic UWlqUWxMOEZmd3pla0xxTVhoQ0daZk9vakh3YTp1SWVYMUdDOW1vV3BTYmtDZktUZnZmSzZoMkFh'
       });
 
-    return this.http.post(environment.wos2, params.toString(), { headers })
+    return this.http.post(environment.urlBase + '/token', params.toString(), { headers })
       .pipe(map(user => {
         console.log(user)
         sessionStorage.setItem('token', JSON.stringify(user));

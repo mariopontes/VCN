@@ -17,7 +17,31 @@
             <div class="form-group col-md-2">
                 <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Adicionar" (click)="addCarga()">
                 </app-btn-loading>
+                <button type="button" class="btn btn-warning btn-sm" style="margin-left: 10px;" (click)="cargaFake()">Mocky</button>
             </div>
         </div>
     </form>
+</div>
+
+<div bsModal #template="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="dialog-child-name" class="modal-title pull-left">Dados do Cartão</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="template.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="esppRef" class="modal-body">
+                    <div>
+                        <b>Código esppRef: </b>{{esppRef}}
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="template.hide()">OK</button>
+            </div>
+        </div>
+    </div>
 </div>

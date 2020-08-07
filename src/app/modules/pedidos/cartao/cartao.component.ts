@@ -21,7 +21,6 @@ export class CartaoComponent implements OnInit, OnDestroy {
   cartao: any;
   btnLoading: boolean;
   modalRef: BsModalRef;
-
   estadosBrasileiros = UF;
 
   bsConfig: Partial<BsDatepickerConfig> = {
@@ -39,7 +38,6 @@ export class CartaoComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    console.log(this.estadosBrasileiros)
     this.createForm();
   }
 
@@ -81,7 +79,6 @@ export class CartaoComponent implements OnInit, OnDestroy {
 
   generateCard() {
     this.btnLoading = true;
-    console.log(this.form.value)
     this.reqGeneric.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/emitir`, this.form.value).subscribe(
       (res: any) => {
         this.creditCard = res;

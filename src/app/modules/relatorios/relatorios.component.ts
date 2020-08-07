@@ -52,10 +52,7 @@ export class RelatoriosComponent implements OnInit {
 
   generateCard() {
     this.reqGeneric.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/emitir`, this.form.value).subscribe(
-      (res: any) => {
-        console.log(res)
-        this.cartao = res
-      },
+      (res: any) => this.cartao = res,
       err => console.log(err))
   }
 }

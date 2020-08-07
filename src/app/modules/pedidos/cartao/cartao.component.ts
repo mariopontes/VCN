@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
 import { environment } from 'src/environments/environment';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import * as moment from 'moment';
+import { AlertService } from 'src/app/shared/services/alert.service';
+import { BsModalRef, BsModalService, ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-cartao',
@@ -12,8 +14,12 @@ import * as moment from 'moment';
 })
 export class CartaoComponent implements OnInit {
 
+  @ViewChild('template', { static: false }) template: ModalDirective;
+
   form: FormGroup;
   cartao: any;
+  btnLoading: boolean;
+  modalRef: BsModalRef;
 
   bsConfig: Partial<BsDatepickerConfig> = {
     containerClass: 'theme-dark-blue',
@@ -22,15 +28,13 @@ export class CartaoComponent implements OnInit {
     minDate: new Date('1930-1-1'),
     maxDate: new Date('2002-1-1')
   };
-
-  test = ["valor", "nome", "sobrenome", "email", "dataNascimento", "telefone",
-    "celular", "sexo", "nacionalidade", "documento", "nomePai", "nomeMae", "rua",
-    "orgaoEmissor", "estadoEmissor", "numero", "complemento", "bairro", "cep", "cidade",
-    "estado", "pais", "estadoCivil"]
+  creditCard: any;
 
   constructor(
+    private modalService: BsModalService,
     private reqGeneric: RequestGenericService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
@@ -40,8 +44,6 @@ export class CartaoComponent implements OnInit {
 
   createForm() {
     this.form = this.fb.group({
-
-
       valor: [10, [Validators.required]],
 
       nome: ['Roberto', Validators.required],
@@ -74,10 +76,21 @@ export class CartaoComponent implements OnInit {
   }
 
   generateCard() {
+    this.btnLoading = true;
     this.reqGeneric.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/emitir`, this.form.value).subscribe(
       (res: any) => {
-        console.log(res)
-        this.cartao = res
-      })
+        this.creditCard = res;
+        this.alertService.successAlert('Cartão criado com sucesso!')
+        this.cartao = res;
+        this.btnLoading = false;
+        this.form.reset();
+        this.template.config = { ignoreBackdropClick: true };
+        this.template.show();
+      },
+      error => this.btnLoading = false)
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { ignoreBackdropClick: true });
   }
 }

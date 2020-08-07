@@ -33,10 +33,6 @@ export class SidebarService {
                     url: '/pedidos/cartao'
                 },
                 {
-                    title: 'Solicitar Cartão + Carga',
-                    url: '/pedidos/cartaoecarga'
-                },
-                {
                     title: 'Solicitar Carga',
                     url: '/pedidos/carga'
                 },

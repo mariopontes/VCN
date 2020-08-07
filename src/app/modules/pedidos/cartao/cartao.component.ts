@@ -54,7 +54,7 @@ export class CartaoComponent implements OnInit {
       nomePai: ['tomas edson', [Validators.required]],
       nomeMae: ['marileuza pereira', [Validators.required]],
 
-      documento: ['91556374003', [Validators.required]],
+      documento: ['61900917092', [Validators.required]],
       orgaoEmissor: ['SSP'],
       estadoEmissor: ['SP'],
 

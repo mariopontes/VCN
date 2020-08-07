@@ -13,7 +13,7 @@ import { CreditCardComponent } from './components/credit-card/credit-card.compon
 @NgModule({
   declarations: [
     BtnLoadingComponent,
-    CreditCardComponent
+    CreditCardComponent,
   ],
   imports: [
     CommonModule,
@@ -24,10 +24,10 @@ import { CreditCardComponent } from './components/credit-card/credit-card.compon
   ],
   exports: [
     FormsModule,
-    ReactiveFormsModule,
     BtnLoadingComponent,
     CreditCardComponent,
     BsDatepickerModule,
+    ReactiveFormsModule,
     ModalModule
   ],
   providers: [

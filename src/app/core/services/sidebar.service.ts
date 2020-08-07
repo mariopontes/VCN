@@ -37,8 +37,8 @@ export class SidebarService {
                     url: '/pedidos/carga'
                 },
                 {
-                    title: 'Consulta',
-                    url: '/pedidos/consulta'
+                    title: 'Consulta Saldo',
+                    url: '/pedidos/consulta-saldo'
                 },
             ]
         }

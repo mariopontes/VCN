@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CargaComponent } from './carga/carga.component';
 import { CartaoComponent } from './cartao/cartao.component';
-import { ConsultaComponent } from './consulta/consulta.component';
+import { ConsultaSaldoComponent } from './consulta-saldo/consulta-saldo.component';
 
 const routes: Routes = [
   { path: 'cartao', component: CartaoComponent },
   { path: 'carga', component: CargaComponent },
-  { path: 'consulta', component: ConsultaComponent },
+  { path: 'consulta-saldo', component: ConsultaSaldoComponent },
   { path: '**', redirectTo: 'consulta', pathMatch: 'full' }
 ];
 

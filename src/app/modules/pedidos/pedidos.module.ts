@@ -5,14 +5,14 @@ import { PedidosRoutingModule } from './pedidos-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CartaoComponent } from './cartao/cartao.component';
 import { CargaComponent } from './carga/carga.component';
-import { ConsultaComponent } from './consulta/consulta.component';
+import { ConsultaSaldoComponent } from './consulta-saldo/consulta-saldo.component';
 
 
 @NgModule({
   declarations: [
     CartaoComponent,
     CargaComponent,
-    ConsultaComponent
+    ConsultaSaldoComponent
   ],
   imports: [
     CommonModule,

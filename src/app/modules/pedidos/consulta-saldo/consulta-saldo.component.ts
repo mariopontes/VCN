@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-consulta',
-  templateUrl: './consulta.component.html',
-  styleUrls: ['./consulta.component.scss']
+  selector: 'app-consulta-saldo',
+  templateUrl: './consulta-saldo.component.html',
+  styleUrls: ['./consulta-saldo.component.scss']
 })
-export class ConsultaComponent implements OnInit {
+export class ConsultaSaldoComponent implements OnInit {
 
   saldo: any; // 1400101860799451
   esppRef: any;
@@ -24,7 +25,7 @@ export class ConsultaComponent implements OnInit {
       "proxy": this.proxy
     }
 
-    this.requestService.post('https://qa-gw.eprepay.com.br/esppvcn/v1.0.0/cartaovirtual/saldo', obj).subscribe(
+    this.requestService.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/saldo', obj).subscribe(
       (res: any) => {
         this.saldo = res;
       },

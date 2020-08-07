@@ -90,7 +90,4 @@ export class CartaoComponent implements OnInit {
       error => this.btnLoading = false)
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, { ignoreBackdropClick: true });
-  }
 }

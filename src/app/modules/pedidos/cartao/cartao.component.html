@@ -115,8 +115,8 @@
 
             <div class="form-group col-md-3">
                 <label>Estado</label>
-                <ng-select class="w-100" [clearable]="false" notFoundText="Não encontrado" formControlName="estado">
-                    <ng-option value="SP">São Paulo</ng-option>
+                <ng-select class="w-100" [dropdownPosition]="'top'" [items]="estadosBrasileiros" bindLabel="nome" bindValue="sigla"
+                    [clearable]="false" notFoundText="Não encontrado" formControlName="estado">
                 </ng-select>
             </div>
 

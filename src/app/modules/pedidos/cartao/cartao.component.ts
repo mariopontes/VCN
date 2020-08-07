@@ -5,7 +5,8 @@ import { environment } from 'src/environments/environment';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import * as moment from 'moment';
 import { AlertService } from 'src/app/shared/services/alert.service';
-import { BsModalRef, BsModalService, ModalDirective } from 'ngx-bootstrap/modal';
+import { BsModalRef, ModalDirective } from 'ngx-bootstrap/modal';
+import { UF } from '../../../shared/utils/estados-brasileiros'
 
 @Component({
   selector: 'app-cartao',
@@ -21,6 +22,8 @@ export class CartaoComponent implements OnInit, OnDestroy {
   btnLoading: boolean;
   modalRef: BsModalRef;
 
+  estadosBrasileiros = UF;
+
   bsConfig: Partial<BsDatepickerConfig> = {
     containerClass: 'theme-dark-blue',
     showWeekNumbers: false,
@@ -32,11 +35,11 @@ export class CartaoComponent implements OnInit, OnDestroy {
 
   constructor(
     private reqGeneric: RequestGenericService,
-    private fb: FormBuilder,
-    private alertService: AlertService
+    private fb: FormBuilder
   ) { }
 
   ngOnInit() {
+    console.log(this.estadosBrasileiros)
     this.createForm();
   }
 

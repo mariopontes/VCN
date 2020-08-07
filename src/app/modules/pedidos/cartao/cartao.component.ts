@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild, OnDestroy } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
 import { environment } from 'src/environments/environment';
@@ -12,7 +12,7 @@ import { BsModalRef, BsModalService, ModalDirective } from 'ngx-bootstrap/modal'
   templateUrl: './cartao.component.html',
   styleUrls: ['./cartao.component.scss']
 })
-export class CartaoComponent implements OnInit {
+export class CartaoComponent implements OnInit, OnDestroy {
 
   @ViewChild('template', { static: false }) template: ModalDirective;
 
@@ -31,7 +31,6 @@ export class CartaoComponent implements OnInit {
   creditCard: any;
 
   constructor(
-    private modalService: BsModalService,
     private reqGeneric: RequestGenericService,
     private fb: FormBuilder,
     private alertService: AlertService
@@ -39,7 +38,10 @@ export class CartaoComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    console.log(moment().subtract(18, 'years').format('YYYY-MM-DD'))
+  }
+
+  ngOnDestroy() {
+    this.template.ngOnDestroy();
   }
 
   createForm() {
@@ -71,16 +73,15 @@ export class CartaoComponent implements OnInit {
       estado: ['SP', [Validators.required]],
       cep: ['0116542695', [Validators.required]],
       pais: ['BR', [Validators.required]],
-
     })
   }
 
   generateCard() {
     this.btnLoading = true;
+    console.log(this.form.value)
     this.reqGeneric.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/emitir`, this.form.value).subscribe(
       (res: any) => {
         this.creditCard = res;
-        this.alertService.successAlert('Cartão criado com sucesso!')
         this.cartao = res;
         this.btnLoading = false;
         this.form.reset();

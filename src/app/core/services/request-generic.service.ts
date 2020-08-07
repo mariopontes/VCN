@@ -53,7 +53,7 @@ export class RequestGenericService {
       toast: true,
       position: 'top-end',
       showConfirmButton: false,
-      timer: 4000,
+      timer: 5000,
       timerProgressBar: true,
       onOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -63,7 +63,7 @@ export class RequestGenericService {
 
     Toast.fire({
       icon: 'error',
-      title: 'Não foi possivel realizar essa transação'
+      title: error.error.mensagem
     })
 
     return throwError(error);

@@ -1,4 +1,4 @@
-@import "~@ng-select/ng-select/themes/material.theme.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 .pointer {
     cursor: pointer;
@@ -18,3 +18,33 @@
 .modal-header {
     background: #e6e6e6;
 }
+
+.ng-select {
+    font-size: 14px;
+    height: 30px;
+    min-height: 30px;
+}
+
+.ng-select.ng-select-single .ng-select-container {
+    height: 30px;
+    min-height: 30px;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    padding: 5px 8px;
+}
+// .swal2-header {
+//     align-items: flex-start !important;
+
+//     .swal2-title {
+//         font-size: 24px;
+//     }
+// }
+
+// .swal2-content {
+//     font-size: 14px !important;
+// }
+
+// .swal2-styled {
+//     padding: 4px 10px 4px 10px !important;
+// }

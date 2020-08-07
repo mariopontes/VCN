@@ -7,7 +7,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { BtnLoadingComponent } from './components/btn-loading/btn-loading.component';
 import { AlertService } from './services/alert.service';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
-
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -19,6 +19,7 @@ import { CreditCardComponent } from './components/credit-card/credit-card.compon
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgSelectModule,
     BsDatepickerModule.forRoot(),
     ModalModule.forRoot()
   ],
@@ -28,7 +29,8 @@ import { CreditCardComponent } from './components/credit-card/credit-card.compon
     CreditCardComponent,
     BsDatepickerModule,
     ReactiveFormsModule,
-    ModalModule
+    ModalModule,
+    NgSelectModule
   ],
   providers: [
     AlertService

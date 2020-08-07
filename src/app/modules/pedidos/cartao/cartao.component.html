@@ -4,7 +4,7 @@
 
 <div class="content-form">
     <form [formGroup]="form" (ngSubmit)="generateCard()">
-        <div class="d-flex w-100 flex-wrap">
+        <div class="d-flex w-100 flex-wrap p-3">
 
             <div class="form-group col-md-3">
                 <label>Valor da carga</label>
@@ -43,7 +43,10 @@
 
             <div class="form-group col-md-3">
                 <label>Sexo</label>
-                <input type="text" class="form-control form-control-sm" formControlName="sexo">
+                <ng-select class="w-100" [clearable]="false" [searchable]="false" formControlName="sexo">
+                    <ng-option value="M">Masculino</ng-option>
+                    <ng-option value="F">Feminino</ng-option>
+                </ng-select>
             </div>
 
             <div class="form-group col-md-3">
@@ -70,7 +73,12 @@
 
             <div class="form-group col-md-6">
                 <label>Estado Civil</label>
-                <input type="text" class="form-control form-control-sm" formControlName="estadoCivil">
+                <ng-select class="w-100" [clearable]="false" [searchable]="false" formControlName="estadoCivil">
+                    <ng-option value="solteiro">Solteiro (a)</ng-option>
+                    <ng-option value="casado">Casado (a)</ng-option>
+                    <ng-option value="divorciado">Divorciado (a)</ng-option>
+                    <ng-option value="viuvo">Viúvo (a)</ng-option>
+                </ng-select>
             </div>
 
             <div class="form-group col-md-6">
@@ -107,7 +115,16 @@
 
             <div class="form-group col-md-3">
                 <label>Estado</label>
-                <input type="text" class="form-control form-control-sm" formControlName="estado">
+                <ng-select class="w-100" [clearable]="false" notFoundText="Não encontrado" formControlName="estado">
+                    <ng-option value="SP">São Paulo</ng-option>
+                </ng-select>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>País</label>
+                <ng-select class="w-100" [clearable]="false" [searchable]="false" formControlName="pais">
+                    <ng-option value="BR">Brasil</ng-option>
+                </ng-select>
             </div>
 
             <div class="form-group col-md-6">
@@ -124,6 +141,7 @@
     <button type="button" class="btn btn-secondary btn-sm">Limpar</button>
     <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" (click)="generateCard()"></app-btn-loading>
 </div>
+
 
 <div bsModal #template="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
     <div class="modal-dialog">

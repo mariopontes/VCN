@@ -15,9 +15,9 @@
         </div>
 
         <div class="form-buttons">
+            <button type="button" class="btn btn-warning btn-sm" style="margin-left: 10px;" (click)="cargaFake()">Mocky</button>
             <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Adicionar" (click)="addCarga()">
             </app-btn-loading>
-            <button type="button" class="btn btn-warning btn-sm" style="margin-left: 10px;" (click)="cargaFake()">Mocky</button>
         </div>
     </form>
 </div>

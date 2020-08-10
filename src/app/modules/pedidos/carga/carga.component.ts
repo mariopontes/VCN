@@ -33,6 +33,7 @@ export class CargaComponent implements OnInit {
     this.btnLoading = true;
     this.reqGeneric.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/carga', this.form.value).subscribe(
       (res: any) => {
+        this.esppRef = res.esppRef;
         this.btnLoading = false;
         this.form.reset();
         this.template.config = { ignoreBackdropClick: true };

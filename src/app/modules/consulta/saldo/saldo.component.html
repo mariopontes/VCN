@@ -1,23 +1,40 @@
-<div class="container">
-    <form>
-        <div class="d-flex">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Example Proxy: 1400101860799451</label>
-                    <input type="text" class="form-control" name="proxy" [(ngModel)]="proxy">
-                </div>
-            </div>
+<br>
+<h1>Consulta de Saldo</h1>
 
-            <div class="col-md-6">
-                <button type="button" class="btn btn-primary" style="margin-top: 32px;" (click)="getSaldo()">Obter Saldo</button>
+<div class="content-form">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="d-flex flex-wrap">
+            <div class="form-group col-md-4">
+                <label>Proxy</label>
+                <input type="text" class="form-control form-control-sm" formControlName="proxy">
             </div>
         </div>
-    </form>
 
-    <div class="col-md-12">
-        <div *ngIf="saldo" class="form-group">
-            <p> Saldo : {{saldo.saldo}}</p>
-            <p> esppRef : {{saldo.esppRef}}</p>
+        <div class="form-buttons">
+            <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Consultar" (click)="onSubmit()"></app-btn-loading>
+        </div>
+    </form>
+</div>
+
+<div bsModal #template="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="header-modal">
+                <h4 class="modal-title pull-left">Saldo do Cartão</h4>
+                <button type="button" class="close pull-right" (click)="template.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body modal-body">
+                <div *ngIf="saldo" class="modal-body">
+                    <div>
+                        <b>ESPP Ref:</b> {{saldo.esppRef}} <br>
+                        <b>Saldo:</b> {{saldo.saldo | currency:'BRL'}} <br>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

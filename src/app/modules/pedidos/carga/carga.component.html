@@ -12,11 +12,12 @@
                 <label>Valor</label>
                 <input type="number" class="form-control form-control-sm" formControlName="valor">
             </div>
-            <div class="form-group col-md-2">
-                <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Adicionar" (click)="addCarga()">
-                </app-btn-loading>
-                <button type="button" class="btn btn-warning btn-sm" style="margin-left: 10px;" (click)="cargaFake()">Mocky</button>
-            </div>
+        </div>
+
+        <div class="form-buttons">
+            <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Adicionar" (click)="addCarga()">
+            </app-btn-loading>
+            <button type="button" class="btn btn-warning btn-sm" style="margin-left: 10px;" (click)="cargaFake()">Mocky</button>
         </div>
     </form>
 </div>

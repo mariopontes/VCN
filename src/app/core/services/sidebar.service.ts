@@ -36,10 +36,22 @@ export class SidebarService {
                     title: 'Solicitar Carga',
                     url: '/pedidos/carga'
                 },
+            ]
+        },
+        {
+            title: 'Consultas',
+            icon: 'fas fa-search',
+            active: false,
+            type: 'dropdown',
+            submenus: [
                 {
-                    title: 'Consulta Saldo',
-                    url: '/pedidos/consulta-saldo'
+                    title: 'Saldo',
+                    url: '/consulta/saldo'
                 },
+                {
+                    title: 'Extrato',
+                    url: '/consulta/extrato'
+                }
             ]
         }
     ];

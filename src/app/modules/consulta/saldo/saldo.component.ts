@@ -3,11 +3,11 @@ import { RequestGenericService } from 'src/app/core/services/request-generic.ser
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-consulta-saldo',
-  templateUrl: './consulta-saldo.component.html',
-  styleUrls: ['./consulta-saldo.component.scss']
+  selector: 'app-saldo',
+  templateUrl: './saldo.component.html',
+  styleUrls: ['./saldo.component.scss']
 })
-export class ConsultaSaldoComponent implements OnInit {
+export class SaldoComponent implements OnInit {
 
   saldo: any; // 1400101860799451
   esppRef: any;

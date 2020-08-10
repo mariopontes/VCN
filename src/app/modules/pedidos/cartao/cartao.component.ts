@@ -3,8 +3,9 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
 import { environment } from 'src/environments/environment';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { DataPickerConfig } from 'src/app/shared/utils/data-picker.config';
+
 import * as moment from 'moment';
-import { AlertService } from 'src/app/shared/services/alert.service';
 import { BsModalRef, ModalDirective } from 'ngx-bootstrap/modal';
 import { UF } from '../../../shared/utils/estados-brasileiros'
 
@@ -23,13 +24,8 @@ export class CartaoComponent implements OnInit, OnDestroy {
   modalRef: BsModalRef;
   estadosBrasileiros = UF;
 
-  bsConfig: Partial<BsDatepickerConfig> = {
-    containerClass: 'theme-dark-blue',
-    showWeekNumbers: false,
-    dateInputFormat: 'DD/MM/YYYY',
-    minDate: new Date('1930-1-1'),
-    maxDate: new Date('2002-1-1')
-  };
+  bsConfig: Partial<BsDatepickerConfig> = DataPickerConfig;
+
   creditCard: any;
 
   constructor(

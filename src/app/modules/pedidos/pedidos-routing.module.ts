@@ -7,7 +7,7 @@ import { CartaoComponent } from './cartao/cartao.component';
 const routes: Routes = [
   { path: 'cartao', component: CartaoComponent },
   { path: 'carga', component: CargaComponent },
-  { path: '**', redirectTo: 'consulta', pathMatch: 'full' }
+  { path: '**', redirectTo: 'cartao', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -7,6 +7,7 @@ import { ExtratoComponent } from './extrato/extrato.component';
 const routes: Routes = [
   { path: 'saldo', component: SaldoComponent },
   { path: 'extrato', component: ExtratoComponent },
+  { path: '**', redirectTo: 'saldo', pathMatch: 'full' }
 ];
 
 @NgModule({

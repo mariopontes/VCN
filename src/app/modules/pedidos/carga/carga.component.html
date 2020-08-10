@@ -1,7 +1,5 @@
-<div>
-    <h3>Adicionar crédito ao Cartão Virtual</h3>
-</div>
-
+<br>
+<h1>Adicionar carga ao Cartão Virtual</h1>
 
 <div class="content-form">
     <form [formGroup]="form">
@@ -26,21 +24,18 @@
 <div bsModal #template="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 id="dialog-child-name" class="modal-title pull-left">Dados do Cartão</h4>
-                <button type="button" class="close pull-right" aria-label="Close" (click)="template.hide()">
+            <div class="header-modal">
+                <h4 class="modal-title pull-left">Dados do Cartão</h4>
+                <button class="close pull-right" (click)="template.hide()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div *ngIf="esppRef" class="modal-body">
+            <div class="modal-body modal-body">
+                <div *ngIf="esppRef">
                     <div>
                         <b>Código esppRef: </b>{{esppRef}}
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" (click)="template.hide()">OK</button>
             </div>
         </div>
     </div>

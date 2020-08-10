@@ -19,6 +19,44 @@
 //     background: #e6e6e6;
 // }
 
+.footer-modal {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+}
+
+.header-modal {
+    background: #00bff0;
+    color: #fff;
+    display: flex;
+    padding: 7px;
+    justify-content: space-between;
+}
+
+.modal-body {
+    min-height: 5em;
+    display: flex;
+    align-items: center;
+}
+
+.modal-content {
+    border: none !important;
+}
+
+button.close {
+    color: #fff;
+    opacity: 1;
+    display: flex;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    margin-top: 25px;
+}
+
 .ng-select {
     font-size: 14px;
     height: 30px;

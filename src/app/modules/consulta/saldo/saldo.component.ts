@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
 import { environment } from 'src/environments/environment';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -9,7 +9,7 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
   templateUrl: './saldo.component.html',
   styleUrls: ['./saldo.component.scss']
 })
-export class SaldoComponent implements OnInit {
+export class SaldoComponent implements OnInit, OnDestroy {
 
   @ViewChild('template', { static: false }) template: ModalDirective;
 
@@ -27,6 +27,10 @@ export class SaldoComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+  }
+
+  ngOnDestroy() {
+    this.template.ngOnDestroy();
   }
 
   createForm() {

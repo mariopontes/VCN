@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
@@ -12,7 +12,7 @@ import * as moment from 'moment';
   templateUrl: './extrato.component.html',
   styleUrls: ['./extrato.component.scss']
 })
-export class ExtratoComponent implements OnInit {
+export class ExtratoComponent implements OnInit, OnDestroy {
 
   @ViewChild('template', { static: false }) template: ModalDirective;
 
@@ -22,15 +22,18 @@ export class ExtratoComponent implements OnInit {
   extrato: any = {};
   btnLoading: boolean = false;
 
+  constructor(
+    private requestGeneric: RequestGenericService,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
     this.createForm();
   }
 
-  constructor(
-    private requestGeneric: RequestGenericService,
-    private fb: FormBuilder
-  ) { }
+  ngOnDestroy() {
+    this.template.ngOnDestroy();
+  }
 
   createForm() {
     this.form = this.fb.group({

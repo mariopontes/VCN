@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
 import { environment } from 'src/environments/environment';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -9,7 +9,7 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
   templateUrl: './carga.component.html',
   styleUrls: ['./carga.component.scss']
 })
-export class CargaComponent implements OnInit {
+export class CargaComponent implements OnInit, OnDestroy {
 
   @ViewChild('template', { static: false }) template: ModalDirective;
 
@@ -28,6 +28,11 @@ export class CargaComponent implements OnInit {
       valor: [null, [Validators.required, Validators.minLength(1)]]
     })
   }
+
+  ngOnDestroy() {
+    this.template.ngOnDestroy();
+  }
+
 
   addCarga() {
     this.btnLoading = true;

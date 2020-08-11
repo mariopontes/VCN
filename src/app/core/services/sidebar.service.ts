@@ -7,13 +7,13 @@ export class SidebarService {
     toggled = false;
     _hasBackgroundImage = true;
     menus = [
-        {
-            title: 'general',
-            type: 'header'
-        },
+        // {
+        //     title: 'general',
+        //     type: 'header'
+        // },
         {
             title: 'Home',
-            icon: 'fa fa-tachometer-alt',
+            icon: 'fas fa-home',
             active: false,
             type: 'simple',
             url: '/home'
@@ -24,7 +24,7 @@ export class SidebarService {
         },
         {
             title: 'Pedidos',
-            icon: 'far fa-gem',
+            icon: 'far fa-credit-card',
             active: false,
             type: 'dropdown',
             submenus: [

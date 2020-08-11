@@ -49,13 +49,11 @@
 }
 
 .sidebar {
-    width: 280px;
-    height: calc(100% - 100px);
-    // height: 100%;
+    width: 225px;
+    height: calc(100% - 101px);
     max-height: 100%;
     position: fixed;
-    top: 100px;
-    // top: 0;
+    top: 101px;
     left: 0px;
     z-index: 999;
     transition: left 0.3s ease;
@@ -167,15 +165,17 @@
                     padding: 8px 30px 8px 20px;
                     align-items: center;
                     display: flex;
+                    font-size: 13px;
 
                     i {
                         margin-right: 10px;
-                        font-size: 12px;
+                        font-size: 20px;
                         width: 30px;
                         height: 30px;
                         line-height: 30px;
                         text-align: center;
                         border-radius: 4px;
+                        color: #162056;
                     }
 
                     &:hover > i::before {
@@ -221,9 +221,10 @@
 
                     li {
                         padding-left: 25px;
-                        font-size: 13px;
 
                         a {
+                            font-size: 12px;
+
                             &:before {
                                 content: "\f111";
                                 font-family: "Font Awesome 5 Free";
@@ -407,9 +408,10 @@
 $bg-sidebar-wrapper: #1d1d1d;
 $border-color: #2b2b2b;
 $footer-top-border-color: #3a3a3a;
-$color: #bdbdbd;
+$color: #575252;
 $header-menu-color: #6c7b88;
-$hover-color: #ffffff;
+// $hover-color: #ffffff;
+$hover-color: #575252;
 $shadow-color: #131212;
 $bg-scrollbar: #636363;
 
@@ -452,6 +454,7 @@ $img-shadow-color: rgba(0, 0, 0, 0.5);
     .sidebar-footer > div > a:hover i,
     #close-sidebar:hover {
         color: $hover-color;
+        font-weight: 900;
     }
 
     ul li:hover a i,
@@ -503,7 +506,7 @@ $img-shadow-color: rgba(0, 0, 0, 0.5);
             bottom: 0;
             left: 0;
             // background-color: $img-bg-sidebar-wrapper;
-            background: #343a40;
+            background: #fff;
             // background: #162056;
         }
 

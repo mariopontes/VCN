@@ -6,6 +6,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { DataPickerConfig } from 'src/app/shared/utils/data-picker.config';
 import * as moment from 'moment';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-extrato',
@@ -21,6 +22,7 @@ export class ExtratoComponent implements OnInit, OnDestroy {
   form: FormGroup;
   extrato: any = {};
   btnLoading: boolean = false;
+  currentRequest: Subscription;
 
   constructor(
     private requestGeneric: RequestGenericService,
@@ -32,7 +34,7 @@ export class ExtratoComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.template.ngOnDestroy();
+    this.currentRequest ? this.currentRequest.unsubscribe() : null;
   }
 
   createForm() {
@@ -45,7 +47,7 @@ export class ExtratoComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     this.btnLoading = true;
-    this.requestGeneric.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/extrato', this.form.value).subscribe(
+    this.currentRequest = this.requestGeneric.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/extrato', this.form.value).subscribe(
       res => {
         this.extrato = res;
         this.template.config = { ignoreBackdropClick: true };

@@ -8,6 +8,7 @@ import { DataPickerConfig } from 'src/app/shared/utils/data-picker.config';
 import * as moment from 'moment';
 import { BsModalRef, ModalDirective } from 'ngx-bootstrap/modal';
 import { UF } from '../../../shared/utils/estados-brasileiros'
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cartao',
@@ -23,6 +24,7 @@ export class CartaoComponent implements OnInit, OnDestroy {
   btnLoading: boolean;
   modalRef: BsModalRef;
   estadosBrasileiros = UF;
+  currentRequest: Subscription;
 
   bsConfig: Partial<BsDatepickerConfig> = DataPickerConfig;
 
@@ -38,7 +40,7 @@ export class CartaoComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.template.ngOnDestroy();
+    this.currentRequest ? this.currentRequest.unsubscribe() : null;
   }
 
   createForm() {
@@ -75,7 +77,7 @@ export class CartaoComponent implements OnInit, OnDestroy {
 
   generateCard() {
     this.btnLoading = true;
-    this.reqGeneric.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/emitir`, this.form.value).subscribe(
+    this.currentRequest = this.reqGeneric.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/emitir`, this.form.value).subscribe(
       (res: any) => {
         this.creditCard = res;
         this.cartao = res;

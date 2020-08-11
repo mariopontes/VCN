@@ -3,6 +3,7 @@ import { RequestGenericService } from 'src/app/core/services/request-generic.ser
 import { environment } from 'src/environments/environment';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-carga',
@@ -16,6 +17,7 @@ export class CargaComponent implements OnInit, OnDestroy {
   form: FormGroup;
   btnLoading: boolean;
   esppRef: string;
+  currentRequest: Subscription;
 
   constructor(
     private reqGeneric: RequestGenericService,
@@ -30,13 +32,13 @@ export class CargaComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.template.ngOnDestroy();
+    this.currentRequest ? this.currentRequest.unsubscribe() : null;
   }
 
 
   addCarga() {
     this.btnLoading = true;
-    this.reqGeneric.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/carga', this.form.value).subscribe(
+    this.currentRequest = this.reqGeneric.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/carga', this.form.value).subscribe(
       (res: any) => {
         this.esppRef = res.esppRef;
         this.btnLoading = false;

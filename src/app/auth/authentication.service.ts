@@ -12,24 +12,22 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) {
     let token = sessionStorage.getItem('token');
-
     token ? this.currentUser = JSON.parse(token) : null;
   }
 
   login(username: string, password: string) {
     let params = new URLSearchParams();
     params.append('grant_type', 'password');
-    params.append('password', 'is2b@1234');
-    params.append('username', 'is2b');
+    params.append('password', 'vcn_squad');
+    params.append('username', 'vcn_squad');
     params.append('scope', 'openid profile vcn');
 
-    let headers =
-      new HttpHeaders({
-        'Content-type': 'application/x-www-form-urlencoded',
-        'Authorization': 'Basic UWlqUWxMOEZmd3pla0xxTVhoQ0daZk9vakh3YTp1SWVYMUdDOW1vV3BTYmtDZktUZnZmSzZoMkFh'
-      });
+    let headers = new HttpHeaders({
+      'Content-type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Basic aTRfVzJlNHZXY25HUVJEZWJZR2VIZlNsemVnYTpMNDUyb011SDR6STQ2M3QzTllURUR4eUY2Y3Nh'
+    });
 
-    return this.http.post(environment.urlBase + '/token', params.toString(), { headers })
+    return this.http.post(environment.login, params.toString(), { headers })
       .pipe(map(user => {
         console.log(user)
         sessionStorage.setItem('token', JSON.stringify(user));

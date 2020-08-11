@@ -3,6 +3,7 @@ import { RequestGenericService } from 'src/app/core/services/request-generic.ser
 import { environment } from 'src/environments/environment';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-saldo',
@@ -19,6 +20,7 @@ export class SaldoComponent implements OnInit, OnDestroy {
   saldo: any; // 1400101860799451
   esppRef: any;
   proxy: string;
+  currentRequest: Subscription;
 
   constructor(
     private fb: FormBuilder,
@@ -30,7 +32,7 @@ export class SaldoComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.template.ngOnDestroy();
+    this.currentRequest ? this.currentRequest.unsubscribe() : null;
   }
 
   createForm() {
@@ -42,7 +44,7 @@ export class SaldoComponent implements OnInit, OnDestroy {
   onSubmit() {
     this.btnLoading = true;
 
-    this.requestService.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/saldo', this.form.value).subscribe(
+    this.currentRequest = this.requestService.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/saldo', this.form.value).subscribe(
       (res: any) => {
         this.saldo = res;
         this.btnLoading = false;

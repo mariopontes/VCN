@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import Swal from 'sweetalert2';
 
 @Injectable({
@@ -30,7 +30,7 @@ export class RequestGenericService {
     )
   }
 
-  post(url: string, body: object, useHeaders?: boolean) {
+  post(url?: string, body?: object, useHeaders?: boolean): Observable<any> {
     useHeaders == true || useHeaders == undefined ? this.setHeaders() : null;
     return this.http.post(url, body, this.httpOptions).pipe(catchError(this.handleError)
     )

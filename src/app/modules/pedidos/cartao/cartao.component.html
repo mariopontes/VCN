@@ -136,13 +136,12 @@
         </div>
     </form>
 
-</div>
+    <div class="content-button">
+        <button type="button" class="btn btn-secondary btn-sm">Limpar</button>
+        <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" (click)="generateCard()"></app-btn-loading>
+    </div>
 
-<div class="content-button">
-    <button type="button" class="btn btn-secondary btn-sm">Limpar</button>
-    <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" (click)="generateCard()"></app-btn-loading>
 </div>
-
 
 <div bsModal #template="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
     <div class="modal-dialog">

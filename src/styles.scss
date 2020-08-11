@@ -86,7 +86,9 @@ button.close {
 .form-buttons {
     display: flex;
     justify-content: flex-end;
-    padding: 5px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .ng-select {

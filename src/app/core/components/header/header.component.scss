@@ -47,10 +47,62 @@
     z-index: 5;
 }
 
+.dropdown-menu {
+    font-size: 13px;
+}
+
 .dropdown-menu.show {
     padding: 5px;
 }
 
 .dropdown-item {
     padding: 10px;
+}
+
+.dropdown-toggle {
+    margin-left: 10px;
+}
+
+.fix-toggle {
+    position: absolute;
+    right: 10px;
+}
+
+.select-contrato {
+    margin-left: 10px;
+    padding: 5px 25px 5px 12px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    max-width: 25ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.content-header {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    border-right: 1px solid #e8e8e8;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+
+    &:last-child {
+        border: 0px;
+    }
+}
+.user {
+    margin-right: 25px;
+}
+
+.fa-user {
+    background: #dcdcdc;
+    padding: 9px;
+    border-radius: 30px;
+    font-size: 24px;
+}
+
+.fa-power-off {
+    font-size: 16px;
 }

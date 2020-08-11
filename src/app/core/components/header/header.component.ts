@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestGenericService } from '../../services/request-generic.service';
 import { HttpClient } from '@angular/common/http';
+import { AuthenticationService } from 'src/app/auth/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -55,9 +56,7 @@ export class HeaderComponent implements OnInit {
   produtoSelecionado: any = '';
   produtos: any;
 
-  constructor(
-    private requestService: RequestGenericService,
-  ) { }
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
     this.empresaSelecionada = this.empresas[0];
@@ -73,6 +72,10 @@ export class HeaderComponent implements OnInit {
 
   setProduto(produto: any) {
     this.produtoSelecionado = produto;
+  }
+
+  logOut() {
+    this.auth.logout();
   }
 
 }

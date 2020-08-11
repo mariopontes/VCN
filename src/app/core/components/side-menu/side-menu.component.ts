@@ -29,11 +29,6 @@ export class SideMenuComponent implements OnInit {
     this.menus = this.sidebarservice.getMenuList();
   }
 
-  logout() {
-    this.auth.logout();
-    this.router.navigate(['/login'])
-  }
-
   getSideBarState() {
     return this.sidebarservice.getSidebarState();
   }

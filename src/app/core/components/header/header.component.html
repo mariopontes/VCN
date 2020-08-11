@@ -7,15 +7,16 @@
             </div>
         </div>
 
-        <div class="col-md-9 d-flex justify-content-center align-items-center" style="color: #162056;">
-            <div class="w-100 d-flex">
+        <div class="col-md-9 d-flex align-items-center" style="color: #575252">
+            <div class="w-100 d-flex justify-content-end">
 
-                <div class="col-md-6 d-flex justify-content-end">
-                    <div class="dropdown">
-                        <div class="pointer" id="empresas" data-toggle="dropdown">
+                <div class="p-3 content-header">
+                    <div class="dropdown d-flex">
+                        <div class="pointer" data-toggle="dropdown">
                             <b>Empresa:</b> {{empresaSelecionada.nome}}
                             <br>
                             <small><b>CPNJ: </b>{{empresaSelecionada.cnpj}}</small>
+
 
                             <div class="dropdown-menu" aria-labelledby="empresas">
                                 <div *ngFor="let e of empresas" class="dropdown-item" (click)="setEmpresa(e)">
@@ -23,19 +24,32 @@
                                 </div>
                             </div>
                         </div>
+                        <span class="dropdown-toggle"></span>
                     </div>
                 </div>
 
-                <div class="col-md-6 d-flex justify-content-end">
+                <div class="p-3 content-header">
                     <div class="dropdown">
-                        <div class="pointer" id="empresas" data-toggle="dropdown">
-                            <b>Produto:</b> {{produtoSelecionado.nome}}
+                        <div class="pointer d-flex justify-content-center align-items-center" data-toggle="dropdown">
+                            <b>Produto:</b>
+                            <span class="select-contrato"> {{produtoSelecionado.nome}} <span class="dropdown-toggle fix-toggle"></span></span>
 
                             <div class="dropdown-menu" aria-labelledby="empresas">
                                 <div *ngFor="let e of produtos" class="dropdown-item" (click)="setProduto(e)"> {{e.nome}} </div>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="p-3 content-header">
+                    <i class="fas fa-user pointer"></i>
+                    <div class="p-3 user">
+                        <div>John</div>
+                        <b>
+                            <div>Admin</div>
+                        </b>
+                    </div>
+                    <i class="fas fa-power-off pointer" (click)="logOut()"></i>
                 </div>
 
             </div>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,10 @@ export class AuthenticationService {
 
   currentUser: any;
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {
     let token = sessionStorage.getItem('token');
 
     token ? this.currentUser = JSON.parse(token) : null;
@@ -41,6 +45,7 @@ export class AuthenticationService {
   logout() {
     sessionStorage.removeItem('token');
     this.currentUser = null;
+    this.router.navigate(['/login'])
   }
 
   isAuthenticated(): boolean {

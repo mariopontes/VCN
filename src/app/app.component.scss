@@ -1,12 +1,12 @@
 .box-body {
     max-width: calc(100% - 225px);
     min-height: calc(100vh - 140px);
-    margin: 100px 0px 75px 225px;
+    margin: 100px 0px 0px 225px;
     padding: 1.5em;
 }
 
 .page-footer {
-    position: fixed;
+    position: relative;
     bottom: 0;
     background: #162056;
     width: 100%;

@@ -1,9 +1,11 @@
-<br>
-<h1>Pedido do cartão virtual</h1>
-
 <div class="content-form">
+    <div class="container-title">
+        <h1>Pedido do cartão virtual</h1>
+        <div class="sub-title">Preencha os dados para solicitação do cartão</div>
+    </div>
+
     <form [formGroup]="form" (ngSubmit)="generateCard()">
-        <div class="d-flex w-100 flex-wrap p-3">
+        <div class="d-flex w-100 flex-wrap">
 
             <div class="form-group col-md-3">
                 <label>Valor da carga</label>

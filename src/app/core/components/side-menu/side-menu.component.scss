@@ -50,12 +50,12 @@
 
 .sidebar {
     width: 225px;
-    height: calc(100% - 141px);
+    height: calc(100% - 100px);
     max-height: 100%;
     position: fixed;
     top: 101px;
     left: 0px;
-    z-index: 999;
+    z-index: 0;
     transition: left 0.3s ease;
 
     a {

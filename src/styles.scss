@@ -8,8 +8,39 @@
     font-family: "montserrat", "arial", sans-serif;
 }
 
+h1 {
+    font-size: 16px !important;
+    font-weight: bold !important;
+    color: #162056 !important;
+}
+
+.sub-title {
+    font-size: 12px;
+    color: #575252;
+}
 .pointer {
     cursor: pointer;
+}
+
+.p-0 {
+    padding: 0 !important;
+}
+
+form {
+    margin-top: 30px;
+
+    label,
+    input {
+        font-size: 12px !important;
+    }
+
+    .form-control-sm {
+        height: calc(1.5em + 0.5rem + 5px);
+    }
+}
+
+.container-title {
+    padding-left: 15px;
 }
 
 .btn-blue {
@@ -18,10 +49,7 @@
 }
 
 .content-form {
-    padding: 10px;
-    // border: 1px solid #dcdcdc;
-    border-radius: 5px;
-    margin-top: 3em;
+    padding: 1.5em;
 }
 
 .footer-modal {
@@ -62,7 +90,7 @@ button.close {
 }
 
 .ng-select {
-    font-size: 14px;
+    font-size: 12px;
     height: 30px;
     min-height: 30px;
 }

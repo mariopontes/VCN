@@ -1,9 +1,17 @@
 .box-body {
-    padding-left: 3em;
-    padding-right: 3em;
-    padding-top: 2em;
-    padding-bottom: 2em;
-    margin-top: 100px;
-    margin-left: 280px;
-    overflow: auto;
+    max-width: calc(100% - 225px);
+    min-height: calc(100vh - 140px);
+    margin: 100px 0px 75px 225px;
+    padding: 1.5em;
+}
+
+.page-footer {
+    position: fixed;
+    bottom: 0;
+    background: #162056;
+    width: 100%;
+
+    .footer-copyright {
+        color: #fff;
+    }
 }

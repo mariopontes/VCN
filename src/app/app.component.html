@@ -1,10 +1,10 @@
 <app-header *ngIf="!isLogin"></app-header>
+<app-side-menu *ngIf="!isLogin"></app-side-menu>
 
-<div class="d-flex">
-    <app-side-menu *ngIf="!isLogin"></app-side-menu>
-
-    <div class="container-fluid box-body">
-        <router-outlet></router-outlet>
-    </div>
-
+<div class="box-body">
+    <router-outlet></router-outlet>
 </div>
+
+<footer *ngIf="!isLogin" class="page-footer">
+    <div class="footer-copyright text-center py-2"><small>© 2020 Copyright</small> </div>
+</footer>

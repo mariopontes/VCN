@@ -4,11 +4,6 @@
     src: url("assets/fonts/Montserrat/Montserrat-Regular.ttf") format("opentype");
 }
 
-@font-face {
-    font-family: montserrat bold;
-    src: url("assets/fonts/Montserrat/Montserrat-SemiBoldItalic.ttf") format("opentype");
-}
-
 * {
     font-family: "montserrat", "arial", sans-serif;
 }
@@ -24,7 +19,7 @@
 
 .content-form {
     padding: 10px;
-    border: 1px solid #dcdcdc;
+    // border: 1px solid #dcdcdc;
     border-radius: 5px;
     margin-top: 3em;
 }

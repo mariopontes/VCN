@@ -53,6 +53,18 @@ export class SidebarService {
                     url: '/consulta/extrato'
                 }
             ]
+        },
+        {
+            title: 'Relatórios',
+            icon: 'fas fa-file-alt',
+            active: false,
+            type: 'dropdown',
+            submenus: [
+                {
+                    title: 'Transações',
+                    url: '/relatorios/transacoes'
+                }
+            ]
         }
     ];
     constructor() { }

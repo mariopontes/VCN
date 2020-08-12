@@ -105,3 +105,40 @@ button.close {
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
     padding: 5px 8px;
 }
+
+table {
+    th {
+        font-size: 13px;
+    }
+
+    td {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+}
+
+#DataTables_Table_0_info,
+#DataTables_Table_0_paginate {
+    font-size: 12px;
+}
+
+#DataTables_Table_0_filter,
+#DataTables_Table_0_length {
+    font-size: 13px;
+
+    input {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        height: 32px;
+    }
+
+    select {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        height: 27px;
+
+        &:focus {
+            outline: none !important;
+        }
+    }
+}

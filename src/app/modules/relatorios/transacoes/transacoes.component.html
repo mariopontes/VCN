@@ -1,0 +1,113 @@
+<div class="content-form">
+
+    <div class="container-title">
+        <h1>Relatório de transações</h1>
+        <div class="sub-title">Preencha as datas para exibir as transações</div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="d-flex flex-wrap">
+
+            <div class="form-group col-md-4" style="max-width: 265px;">
+                <label>Data de</label>
+                <div class="input-group">
+                    <input bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig" type="text" class="form-control form-control-sm input-filter"
+                        formControlName="dataDe">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary btn-sm calendar" (click)="dp.toggle()">
+                            <i class="fa fa-calendar"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4" style="max-width: 265px;">
+                <label>Data até</label>
+                <div class="input-group">
+                    <input bsDatepicker #dp2="bsDatepicker" [bsConfig]="bsConfig" type="text" class="form-control form-control-sm input-filter"
+                        formControlName="dataAte">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary btn-sm calendar" (click)="dp2.toggle()">
+                            <i class="fa fa-calendar"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-buttons">
+            <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Consultar" (click)="onSubmit()"></app-btn-loading>
+        </div>
+    </form>
+</div>
+
+<table datatable [dtOptions]="dtOptions" class="table table-striped table-bordered table-sm">
+    <thead>
+        <tr>
+            <th scope="col">DataAutorizacao</th>
+            <th scope="col">Cartao</th>
+            <th scope="col">NomePortador</th>
+            <th scope="col">DocumentoPortador</th>
+            <th scope="col">CNPJContratante</th>
+            <th scope="col">RazaoSocialContratante</th>
+            <th scope="col">ValorMoedaLocal</th>
+            <th scope="col">CodMcc</th>
+            <th scope="col">Mcc</th>
+            <th scope="col">Rubrica</th>
+            <th scope="col">CidadeComercio</th>
+            <th scope="col">GestorDaVerda</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>05/02/2019 00:00:00</td>
+            <td>7624240010008426</td>
+            <td>soticia Balsod odranodlaB a</td>
+            <td>57204750799</td>
+            <td>17079937000105</td>
+            <td>PINBANK BRASIL - PAGAMENTOS INTELIGENTES S.A.</td>
+            <td>0.19000</td>
+            <td>5734</td>
+            <td>SOFTWARE DE COMPUTADOR</td>
+            <td>NAO INFORMADO</td>
+            <td>GOOGLE *GARENA</td>
+            <td>illessa MarraM assenaV</td>
+        </tr>
+        <tr>
+            <td>asdasd</td>
+            <td>s12s12s12</td>
+            <td>v 12 e 2d</td>
+            <td>57204750799</td>
+            <td>17079937000105</td>
+            <td>PINBANK BRASIL - PAGAMENTOS INTELIGENTES S.A.</td>
+            <td>0.19000</td>
+            <td>5734</td>
+            <td>SOFTWARE DE COMPUTADOR</td>
+            <td>NAO INFORMADO</td>
+            <td>GOOGLE *GARENA</td>
+            <td>illessa MarraM assenaV</td>
+        </tr>
+    </tbody>
+</table>
+
+<div bsModal #template="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="header-modal">
+                <h4 class="modal-title pull-left">Dados do Cartão</h4>
+                <button type="button" class="close pull-right" (click)="template.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body modal-body">
+                <div *ngIf="transacoes" class="modal-body">
+                    <div>
+                        <b>Extrato:</b> {{transacoes.mensagem}} <br>
+                        <b>ESPP Ref:</b> {{transacoes.esppRef}} <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

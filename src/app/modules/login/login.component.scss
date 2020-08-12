@@ -1,3 +1,13 @@
+.box-img {
+    background: url(../../../assets/images/blue_woman.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.custom-control-label::before,
+.custom-control-label::after {
+    top: 0;
+}
+
 .container-login {
     position: fixed;
     left: 0;
@@ -10,7 +20,12 @@
     overflow: auto;
     // background-image: linear-gradient(-70deg, #d52b1e -22%, #ffe282 86%);
     // background-image: linear-gradient(-70deg, #ff8e85 -22%, #fffae9 86%);
-    background-image: linear-gradient(-70deg, #e60a14 -36%, #162056 90%);
+    // background-image: linear-gradient(-70deg, #e60a14 -36%, #162056 90%);
+}
+
+.form-control {
+    height: 45px;
+    font-size: 13px;
 }
 
 .user_card {
@@ -18,35 +33,29 @@
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
-    background: #e6e6e6;
+    // background: #e6e6e6;
     position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    // -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    // -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
 }
 .brand_logo_container {
-    position: absolute;
-    height: 115px;
-    width: 300px;
-    top: 18px;
-    background: transparent;
     padding: 0;
     text-align: center;
 }
 .brand_logo {
     height: auto;
-    width: 300px;
+    width: 330px;
     border-radius: 0;
     border: 0;
+    margin-bottom: 40px;
 }
-.form_container {
-    margin-top: 100px;
-}
+
 .login_btn {
     width: 100%;
     background: #162056 !important;

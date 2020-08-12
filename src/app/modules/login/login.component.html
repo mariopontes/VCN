@@ -1,47 +1,43 @@
 <div class="container-login">
-    <div class="d-flex justify-content-center h-100">
+    <div class="col-md-6 w-100 h-100 d-flex justify-content-center align-items-center">
         <div class="user_card">
             <div class="d-flex justify-content-center">
                 <div class="brand_logo_container">
                     <img src="../../../assets/images/logo1.png" class="brand_logo" alt="Logo">
                 </div>
             </div>
+            <div>
+                <div style="font-size: 20px; text-align: center; color: #162056;"> <b>Acessar</b> conta</div>
+                <p style="font-size: 13px;">Para entrar no portal, informe seu e-mail e senha</p>
+            </div>
             <div class="d-flex justify-content-center form_container">
-                <form autocomplete="off">
+
+                <form class="w-100" autocomplete="off">
                     <div class="input-group mb-3">
-                        <div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        </div>
-                        <input type="text" class="form-control input_user" placeholder="CPF">
+                        <input type="email" name="email" id="email_fake" class="hidden" autocomplete="off" style="display: none;" />
+                        <input type="text" class="form-control input_user" mask="000.000.000-00" placeholder="CPF">
                     </div>
+
                     <div class="input-group mb-2">
-                        <div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        </div>
-                        <input type="password" class="form-control input_pass" placeholder="senha">
+                        <input type="password" name="password" id="password_fake" class="hidden" autocomplete="off" style="display: none;" />
+                        <input type="password" class="form-control input_pass" placeholder="Senha">
                     </div>
-                    <div class="form-group">
+
+                    <div class="form-group" style="margin-top:20px">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="customControlInline">
                             <label class="custom-control-label" for="customControlInline">Remember me</label>
                         </div>
                     </div>
+
                     <div class="d-flex justify-content-center mt-3 login_container">
-                        <button [disabled]="loading" type="button" name="button" class="btn login_btn" (click)="login()">
-                            {{btnLogin}} <div *ngIf="loading" class="spinner-border" role="status"> <span class="sr-only">Loading...</span> </div>
-                        </button>
+                        <app-btn-loading [disable]="loading" [loading]="loading" [title]="btnLogin" (click)="login()"></app-btn-loading>
                     </div>
                 </form>
             </div>
-
-            <!-- <div class="mt-4">
-                <div class="d-flex justify-content-center links">
-                    Don't have an account? <a href="#" class="ml-2">Sign Up</a>
-                </div>
-                <div class="d-flex justify-content-center links">
-                    <a href="#">Forgot your password?</a>
-                </div>
-            </div> -->
         </div>
+    </div>
+    <div class="col-md-6 w-100 h-100 box-img">
+
     </div>
 </div>

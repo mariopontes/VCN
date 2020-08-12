@@ -2,11 +2,13 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
-import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { DataPickerConfig } from 'src/app/shared/utils/data-picker.config';
 import * as moment from 'moment';
 import { Subscription } from 'rxjs';
+import { defineLocale, ptBrLocale } from 'ngx-bootstrap/chronos';
+defineLocale('pt-br', ptBrLocale);
 
 @Component({
   selector: 'app-extrato',
@@ -25,23 +27,26 @@ export class ExtratoComponent implements OnInit, OnDestroy {
   currentRequest: Subscription;
 
   constructor(
+    private localeService: BsLocaleService,
     private requestGeneric: RequestGenericService,
     private fb: FormBuilder
   ) { }
 
   ngOnInit() {
     this.createForm();
+    this.localeService.use('pt-br');
   }
 
   ngOnDestroy() {
     this.currentRequest ? this.currentRequest.unsubscribe() : null;
   }
 
+
   createForm() {
     this.form = this.fb.group({
       proxy: ['1400101860799451', [Validators.required]],
-      dataDe: [moment().subtract(1, 'years').format('YYYY-MM-DD'), [Validators.required]],
-      dataAte: [moment().format('YYYY-MM-DD'), [Validators.required]],
+      dataDe: [moment().subtract(1, 'years').format('L'), [Validators.required]],
+      dataAte: [moment().format('L'), [Validators.required]],
     })
   }
 
@@ -53,7 +58,8 @@ export class ExtratoComponent implements OnInit, OnDestroy {
         this.template.config = { ignoreBackdropClick: true };
         this.template.show();
         this.btnLoading = false;
-      })
+      },
+      err => this.btnLoading = false)
   }
 
   setDataFake() {

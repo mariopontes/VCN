@@ -9,7 +9,7 @@
 
             <div class="form-group col-md-3">
                 <label>Valor da carga</label>
-                <input type="number" class="form-control form-control-sm" formControlName="valor">
+                <input type="text" class="form-control form-control-sm" prefix="R$ " mask="separator.2" thousandSeparator="." formControlName="valor">
             </div>
 
             <div class="break-line"></div>
@@ -26,7 +26,7 @@
 
             <div class="form-group col-md-3">
                 <label>CPF/CNPJ</label>
-                <input type="text" class="form-control form-control-sm" formControlName="documento">
+                <input type="text" class="form-control form-control-sm" mask="000.000.000-00" formControlName="documento">
             </div>
 
             <div class="form-group col-md-3">
@@ -64,12 +64,12 @@
 
             <div class="form-group col-md-3">
                 <label>Telefone</label>
-                <input type="text" class="form-control form-control-sm" formControlName="telefone">
+                <input type="text" class="form-control form-control-sm" mask="(00) 0000-0000" formControlName="telefone">
             </div>
 
             <div class="form-group col-md-3">
                 <label>Celular</label>
-                <input type="text" class="form-control form-control-sm" formControlName="celular">
+                <input type="text" class="form-control form-control-sm" mask="(00) 0 0000-0000" formControlName="celular">
             </div>
 
             <div class="form-group col-md-6">

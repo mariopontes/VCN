@@ -1,6 +1,6 @@
 export const DataPickerConfig = {
     containerClass: 'theme-dark-blue',
     showWeekNumbers: false,
-    dateInputFormat: 'YYYY-MM-DD',
+    dateInputFormat: 'DD-MM-YYYY',
     minDate: new Date('1930-1-1'),
 }

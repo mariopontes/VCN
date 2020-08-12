@@ -8,6 +8,11 @@ import { BtnLoadingComponent } from './components/btn-loading/btn-loading.compon
 import { AlertService } from './services/alert.service';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 
 @NgModule({
@@ -21,7 +26,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ReactiveFormsModule,
     NgSelectModule,
     BsDatepickerModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxMaskModule.forRoot(maskConfig)
   ],
   exports: [
     FormsModule,
@@ -30,7 +36,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     BsDatepickerModule,
     ReactiveFormsModule,
     ModalModule,
-    NgSelectModule
+    NgSelectModule,
+    NgxMaskModule
   ],
   providers: [
     AlertService

@@ -71,6 +71,10 @@ export class SidebarService {
                 {
                     title: 'Crédito',
                     url: '/relatorios/credito'
+                },
+                {
+                    title: 'Emissões',
+                    url: '/relatorios/emissoes'
                 }
             ]
         }

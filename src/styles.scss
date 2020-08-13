@@ -63,22 +63,38 @@ form {
     padding: 10px;
 }
 
-.header-modal {
-    background: #00bff0;
-    color: #fff;
-    display: flex;
-    padding: 7px;
-    justify-content: space-between;
-}
-
 .modal-body {
     min-height: 5em;
     display: flex;
     align-items: center;
+    font-size: 14px;
 }
 
-.modal-content {
-    border: none !important;
+.modal-dialog {
+    .modal-content {
+        border: none;
+        background: #fff;
+    }
+
+    .header-modal {
+        color: #162056;
+        background: #fff;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+
+        h4 {
+            font-weight: bold;
+            padding: 15px 0 5px 0;
+        }
+
+        .close {
+            color: #162056;
+        }
+    }
 }
 
 button.close {

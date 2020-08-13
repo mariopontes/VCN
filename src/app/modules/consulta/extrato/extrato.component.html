@@ -7,8 +7,8 @@
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-        <div class="d-flex flex-wrap">
-            <div class="form-group col-md-4">
+        <div class="d-flex flex-wrap align-items-center">
+            <div class="form-group col-md-4" style="max-width:225px">
                 <label>Proxy</label>
                 <input type="text" class="form-control  form-control-sm" formControlName="proxy">
             </div>
@@ -38,11 +38,11 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="form-buttons">
-            <button type="button" class="btn btn-warning btn-sm" (click)="setDataFake()">Consultar Extrato (Fake)</button>
-            <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Consultar" (click)="onSubmit()"></app-btn-loading>
+            <div class="form-buttons p-0" style="margin-bottom: 1em">
+                <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Consultar" (click)="onSubmit()">
+                </app-btn-loading>
+            </div>
         </div>
     </form>
 </div>

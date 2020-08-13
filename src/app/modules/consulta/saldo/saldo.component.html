@@ -11,10 +11,11 @@
                 <label>Proxy</label>
                 <input type="text" class="form-control form-control-sm" formControlName="proxy">
             </div>
-        </div>
 
-        <div class="form-buttons">
-            <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Consultar" (click)="onSubmit()"></app-btn-loading>
+            <div class="form-buttons p-0" style="margin-bottom: 1rem;">
+                <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Consultar" (click)="onSubmit()">
+                </app-btn-loading>
+            </div>
         </div>
     </form>
 </div>

@@ -112,7 +112,9 @@ button.close {
     border-radius: 5px;
 
     table {
-        border-bottom: none !important;
+        background: #fff;
+        border-bottom: 1px solid #dadada !important;
+        border-top: 0;
 
         th {
             font-size: 13px;
@@ -169,8 +171,7 @@ button.close {
         a.paginate_button.disabled:hover,
         a.paginate_button.disabled:active {
             border: 1px solid #ccc !important;
-            background: #ccc;
-            background-color: #e9ecef;
+            background: #fff !important;
         }
 
         a.paginate_button.current,

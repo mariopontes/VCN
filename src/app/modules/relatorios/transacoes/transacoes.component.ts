@@ -21,7 +21,7 @@ export class TransacoesComponent implements OnInit {
   form: FormGroup;
   transacoes: any = {};
   btnLoading: boolean = false;
-  showTable: boolean = true;
+  showTable: boolean = false;
   currentRequest: Subscription;
 
   dtOptions = tableConfig;

@@ -1,0 +1,32 @@
+<div class="content-form">
+
+    <div class="container-title">
+        <h1>Carga cartão virtual</h1>
+        <div class="sub-title">Preencha os dados para transferir créditos de um cartão para outro</div>
+    </div>
+
+    <form [formGroup]="form">
+        <div class="d-flex"></div>
+        <div class="d-flex align-items-end">
+            <div class="form-group col-md-4" style="max-width: 225px;">
+                <label>Proxy (Remetente)</label>
+                <input type="text" class="form-control form-control-sm" formControlName="proxyde">
+            </div>
+            <div class="form-group col-md-4" style="max-width: 225px;">
+                <label>Proxy (Destinatário)</label>
+                <input type="text" class="form-control form-control-sm" formControlName="proxyate">
+            </div>
+
+            <div class="form-group col-md-4" style="max-width: 175px;">
+                <label>Valor</label>
+                <input type="text" class="form-control form-control-sm" prefix="R$ " mask="separator.2" thousandSeparator="." formControlName="valor">
+            </div>
+
+
+            <div class="form-buttons" style="margin-bottom: 1em">
+                <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Transferir" (click)="onSubmit()">
+                </app-btn-loading>
+            </div>
+        </div>
+    </form>
+</div>

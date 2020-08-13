@@ -29,12 +29,16 @@ export class SidebarService {
             type: 'dropdown',
             submenus: [
                 {
-                    title: 'Solicitar Cartão',
+                    title: ' Cartão',
                     url: '/pedidos/cartao'
                 },
                 {
                     title: 'Solicitar Carga',
                     url: '/pedidos/carga'
+                },
+                {
+                    title: 'Transferencia entre cartões',
+                    url: '/pedidos/transferencia-entre-cartoes'
                 },
             ]
         },

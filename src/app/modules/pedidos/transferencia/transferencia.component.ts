@@ -1,16 +1,16 @@
-import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { RequestGenericService } from 'src/app/core/services/request-generic.service';
-import { environment } from 'src/environments/environment';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { RequestGenericService } from 'src/app/core/services/request-generic.service';
 import { AlertService } from 'src/app/shared/services/alert.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-carga',
-  templateUrl: './carga.component.html',
-  styleUrls: ['./carga.component.scss']
+  selector: 'app-transferencia',
+  templateUrl: './transferencia.component.html',
+  styleUrls: ['./transferencia.component.scss']
 })
-export class CargaComponent implements OnInit, OnDestroy {
+export class TransferenciaComponent implements OnInit {
 
   form: FormGroup;
   btnLoading: boolean;
@@ -25,7 +25,8 @@ export class CargaComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.form = this.fb.group({
-      proxy: ['1400101860799451', [Validators.required]],
+      proxyde: ['1400101860799451', [Validators.required]],
+      proxyate: ['1400101766535143', [Validators.required]],
       valor: [10, [Validators.required, Validators.minLength(1)]]
     })
   }
@@ -37,7 +38,7 @@ export class CargaComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     this.btnLoading = true;
-    this.currentRequest = this.reqGeneric.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/carga', this.form.value).subscribe(
+    this.currentRequest = this.reqGeneric.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/transferencia/entrecartoes', this.form.value).subscribe(
       (res: any) => {
         this.alertService.successAlert(`Operação realizada com sucesso!`)
         this.btnLoading = false;

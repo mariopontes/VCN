@@ -21,6 +21,7 @@ export class TransacoesComponent implements OnInit {
   form: FormGroup;
   transacoes: any = {};
   btnLoading: boolean = false;
+  showTable: boolean = true;
   currentRequest: Subscription;
 
   dtOptions = tableConfig;
@@ -50,12 +51,13 @@ export class TransacoesComponent implements OnInit {
   onSubmit() {
     const dateConverted = {
       dataDe: moment(this.form.get('dataDe').value, 'DD/MM/YYYY').format('YYYY/MM/DD').replace('/', '').replace('/', ''),
-      dataAte: moment(this.form.get('dataAte').value, 'L').format('YYYY/MM/DD').replace('/', '').replace('/', ''),
+      dataAte: moment(this.form.get('dataAte').value, 'DD/MM/YYYY').format('YYYY/MM/DD').replace('/', '').replace('/', ''),
     }
 
     this.btnLoading = true;
     this.currentRequest = this.requestGeneric.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/relatoriotransacao', dateConverted).subscribe(
       res => {
+        this.showTable = true;
         this.transacoes = res;
         console.log(this.transacoes.mensagem)
         this.btnLoading = false;

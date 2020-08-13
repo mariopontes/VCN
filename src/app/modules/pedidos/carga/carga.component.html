@@ -6,8 +6,9 @@
     </div>
 
     <form [formGroup]="form">
+        <div class="d-flex"></div>
         <div class="d-flex align-items-end">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4" style="max-width: 225px;">
                 <label>Proxy</label>
                 <input type="text" class="form-control form-control-sm" formControlName="proxy">
             </div>
@@ -15,32 +16,22 @@
                 <label>Valor</label>
                 <input type="text" class="form-control form-control-sm" prefix="R$ " mask="separator.2" thousandSeparator="." formControlName="valor">
             </div>
-        </div>
 
-        <div class="form-buttons">
-            <button type="button" class="btn btn-warning btn-sm" style="margin-left: 10px;" (click)="cargaFake()">Mocky</button>
-            <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Adicionar" (click)="addCarga()">
-            </app-btn-loading>
+            <div class="form-buttons" style="margin-bottom: 1em">
+                <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Adicionar" (click)="addCarga()">
+                </app-btn-loading>
+            </div>
         </div>
     </form>
+
+    <!-- <div class="container-result">
+        <h3>Transação realizada com sucesso.</h3>
+        <div>Adicionado R$ 10 no cartão/proxy 1400101860799451</div>
+    </div> -->
 </div>
 
-<div bsModal #template="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="header-modal">
-                <h4 class="modal-title pull-left">Dados do Cartão</h4>
-                <button class="close pull-right" (click)="template.hide()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body modal-body">
-                <div *ngIf="esppRef">
-                    <div>
-                        <b>Código esppRef: </b>{{esppRef}}
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- <div class="container-alert">
+    <div class="alert alert-success">
+        <i class="fas fa-check-circle"></i> <span style="margin-left: 15px;">Operação Realizada com sucesso!</span>
     </div>
-</div>
+</div> -->

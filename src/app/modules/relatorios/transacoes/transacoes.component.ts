@@ -7,6 +7,7 @@ import { RequestGenericService } from 'src/app/core/services/request-generic.ser
 import * as moment from 'moment';
 import { environment } from 'src/environments/environment';
 import { defineLocale, ptBrLocale } from 'ngx-bootstrap/chronos';
+import { tableConfig } from 'src/app/shared/utils/table.config';
 defineLocale('pt-br', ptBrLocale);
 
 @Component({
@@ -22,7 +23,7 @@ export class TransacoesComponent implements OnInit {
   btnLoading: boolean = false;
   currentRequest: Subscription;
 
-  dtOptions: any = { responsive: true };
+  dtOptions = tableConfig;
 
   constructor(
     private localeService: BsLocaleService,
@@ -31,8 +32,8 @@ export class TransacoesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.createForm();
     this.localeService.use('pt-br');
+    this.createForm();
   }
 
   ngOnDestroy() {
@@ -41,15 +42,15 @@ export class TransacoesComponent implements OnInit {
 
   createForm() {
     this.form = this.fb.group({
-      dataDe: [moment().subtract(1, 'years').format('L'), [Validators.required]],
-      dataAte: [moment().format('L'), [Validators.required]],
+      dataDe: [moment().subtract(1, 'years').format('DD/MM/YYYY'), [Validators.required]],
+      dataAte: [moment().format('DD/MM/YYYY'), [Validators.required]],
     })
   }
 
   onSubmit() {
     const dateConverted = {
-      dataDe: (moment(this.form.get('dataDe').value, 'DD-MM-YYYY').format('YYYY-MM-DD')).replace('-', '').replace('-', ''),
-      dataAte: moment(this.form.get('dataAte').value, 'DD-MM-YYYY').format('YYYY-MM-DD').replace('-', '').replace('-', ''),
+      dataDe: moment(this.form.get('dataDe').value, 'DD/MM/YYYY').format('YYYY/MM/DD').replace('/', '').replace('/', ''),
+      dataAte: moment(this.form.get('dataAte').value, 'L').format('YYYY/MM/DD').replace('/', '').replace('/', ''),
     }
 
     this.btnLoading = true;

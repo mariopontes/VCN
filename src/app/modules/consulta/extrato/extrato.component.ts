@@ -33,8 +33,8 @@ export class ExtratoComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.createForm();
     this.localeService.use('pt-br');
+    this.createForm();
   }
 
   ngOnDestroy() {
@@ -45,12 +45,17 @@ export class ExtratoComponent implements OnInit, OnDestroy {
   createForm() {
     this.form = this.fb.group({
       proxy: ['1400101860799451', [Validators.required]],
-      dataDe: [moment().subtract(1, 'years').format('L'), [Validators.required]],
-      dataAte: [moment().format('L'), [Validators.required]],
+      dataDe: [moment().subtract(1, 'years').format('DD/MM/YYYY'), [Validators.required]],
+      dataAte: [moment().format('DD/MM/YYYY'), [Validators.required]],
     })
   }
 
   onSubmit() {
+    this.form.patchValue({
+      dataDe: moment(this.form.get('dataDe').value, 'DD/MM/YYYY').format('DD/MM/YYYY'),
+      dataAte: moment(this.form.get('dataAte').value, 'DD/MM/YYYY').format('DD/MM/YYYY'),
+    })
+
     this.btnLoading = true;
     this.currentRequest = this.requestGeneric.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/extrato', this.form.value).subscribe(
       res => {

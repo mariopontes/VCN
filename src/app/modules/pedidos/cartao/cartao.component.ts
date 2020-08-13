@@ -2,13 +2,15 @@ import { Component, OnInit, TemplateRef, ViewChild, OnDestroy } from '@angular/c
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
 import { environment } from 'src/environments/environment';
-import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { DataPickerConfig } from 'src/app/shared/utils/data-picker.config';
 
 import * as moment from 'moment';
 import { BsModalRef, ModalDirective } from 'ngx-bootstrap/modal';
 import { UF } from '../../../shared/utils/estados-brasileiros'
 import { Subscription } from 'rxjs';
+import { defineLocale, ptBrLocale } from 'ngx-bootstrap/chronos';
+defineLocale('pt-br', ptBrLocale);
 
 @Component({
   selector: 'app-cartao',
@@ -31,11 +33,13 @@ export class CartaoComponent implements OnInit, OnDestroy {
   creditCard: any;
 
   constructor(
+    private localeService: BsLocaleService,
     private reqGeneric: RequestGenericService,
     private fb: FormBuilder
   ) { }
 
   ngOnInit() {
+    this.localeService.use('pt-br');
     this.createForm();
   }
 
@@ -50,14 +54,14 @@ export class CartaoComponent implements OnInit, OnDestroy {
       nome: ['Roberto', Validators.required],
       email: ['teste@homg.com', [Validators.required, Validators.email]],
       sobrenome: ['Gonçalves', [Validators.required]],
-      dataNascimento: [moment().subtract(18, 'years').format('YYYY-MM-DD'), [Validators.required]],
+      dataNascimento: [moment().subtract(18, 'years').format('DD/MM/YYYY'), [Validators.required]],
       sexo: ['M', [Validators.required]],
       estadoCivil: ['solteiro', [Validators.required]],
       nacionalidade: ['brasileiro', [Validators.required]],
       nomePai: ['tomas edson', [Validators.required]],
       nomeMae: ['marileuza pereira', [Validators.required]],
 
-      documento: ['61900917092', [Validators.required]],
+      documento: ['91549903004', [Validators.required]],
       orgaoEmissor: ['SSP'],
       estadoEmissor: ['SP'],
 
@@ -76,6 +80,7 @@ export class CartaoComponent implements OnInit, OnDestroy {
   }
 
   generateCard() {
+    this.form.get('dataNascimento').setValue(moment(this.form.get('dataNascimento').value, 'DD/MM/YYYY').format('YYYY/MM/DD'));
     this.btnLoading = true;
     this.currentRequest = this.reqGeneric.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/emitir`, this.form.value).subscribe(
       (res: any) => {
@@ -86,7 +91,10 @@ export class CartaoComponent implements OnInit, OnDestroy {
         this.template.config = { ignoreBackdropClick: true };
         this.template.show();
       },
-      error => this.btnLoading = false)
+      error => {
+        this.form.get('dataNascimento').setValue(moment(this.form.get('dataNascimento').value, 'YYYY/MM/DD').format('DD/MM/YYYY'));
+        this.btnLoading = false;
+      })
   }
 
 }

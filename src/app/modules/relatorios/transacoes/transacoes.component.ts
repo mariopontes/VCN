@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ModalDirective } from 'ngx-bootstrap/modal';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { DataPickerConfig } from 'src/app/shared/utils/data-picker.config';
 import { Subscription } from 'rxjs';
@@ -17,7 +16,6 @@ defineLocale('pt-br', ptBrLocale);
 })
 export class TransacoesComponent implements OnInit {
 
-  @ViewChild('template', { static: false }) template: ModalDirective;
   bsConfig: Partial<BsDatepickerConfig> = DataPickerConfig;
   form: FormGroup;
   transacoes: any = {};
@@ -59,8 +57,6 @@ export class TransacoesComponent implements OnInit {
       res => {
         this.transacoes = res;
         console.log(this.transacoes.mensagem)
-        this.template.config = { ignoreBackdropClick: true };
-        this.template.show();
         this.btnLoading = false;
       },
       err => this.btnLoading = false)

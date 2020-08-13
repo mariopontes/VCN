@@ -38,7 +38,8 @@ const maskConfig: Partial<IConfig> = {
     ReactiveFormsModule,
     ModalModule,
     NgSelectModule,
-    DataTablesModule
+    DataTablesModule,
+    NgxMaskModule
   ],
   providers: [
     AlertService

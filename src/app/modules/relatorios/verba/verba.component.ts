@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { tableConfig } from 'src/app/shared/utils/table.config';
 import { environment } from 'src/environments/environment';
+import { RelatorioVerba } from 'src/app/shared/models/relatorio-verba.model';
 
 @Component({
   selector: 'app-verba',
@@ -15,7 +16,7 @@ export class VerbaComponent implements OnInit {
   data: any;
   urlForm = environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/relatorioverba';
 
-  dataMocky = {
+  dataMocky: RelatorioVerba = {
     "ItemRelatorioVerba": [
       {
         "Data": "20202002 20:12:24",

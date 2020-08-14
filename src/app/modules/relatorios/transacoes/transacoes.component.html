@@ -28,50 +28,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>05/02/2019 00:00:00</td>
-                <td>7624240010008426</td>
-                <td>soticia Balsod odranodlaB a</td>
-                <td>57204750799</td>
-                <td>17079937000105</td>
-                <td>PINBANK BRASIL - PAGAMENTOS INTELIGENTES S.A.</td>
-                <td>0.19000</td>
-                <td>5734</td>
-                <td>SOFTWARE DE COMPUTADOR</td>
-                <td>NAO INFORMADO</td>
-                <td>g.co/helppay#</td>
-                <td>GOOGLE *GARENA</td>
-                <td>illessa MarraM assenaV</td>
-            </tr>
-            <tr>
-                <td>asdasd</td>
-                <td>s12s12s12</td>
-                <td>v 12 e 2d</td>
-                <td>57204750799</td>
-                <td>17079937000105</td>
-                <td>PINBANK BRASIL - PAGAMENTOS INTELIGENTES S.A.</td>
-                <td>0.19000</td>
-                <td>5734</td>
-                <td>SOFTWARE DE COMPUTADOR</td>
-                <td>NAO INFORMADO</td>
-                <td>g.co/helppay#</td>
-                <td>GOOGLE *GARENA</td>
-                <td>illessa MarraM assenaV</td>
-            </tr>
-            <tr>
-                <td>asdasd</td>
-                <td>s12s12s12</td>
-                <td>v 12 e 2d</td>
-                <td>57204750799</td>
-                <td>17079937000105</td>
-                <td>PINBANK BRASIL - PAGAMENTOS INTELIGENTES S.A.</td>
-                <td>0.19000</td>
-                <td>5734</td>
-                <td>SOFTWARE DE COMPUTADOR</td>
-                <td>NAO INFORMADO</td>
-                <td>g.co/helppay#</td>
-                <td>GOOGLE *GARENA</td>
-                <td>illessa MarraM assenaV</td>
+            <tr *ngFor="let item of dataMocky.ItemRelatorioTransacao">
+                <td>{{item.DataAutorizacao}}</td>
+                <td>{{item.Cartao}}</td>
+                <td>{{item.NomePortador}}</td>
+                <td>{{item.DocumentoPortador}}</td>
+                <td>{{item.CNPJContratante}}</td>
+                <td>{{item.RazaoSocialContratante}}</td>
+                <td>{{item.ValorMoedaLocal}}</td>
+                <td>{{item.CodMcc}}</td>
+                <td>{{item.Mcc}}</td>
+                <td>{{item.Rubrica}}</td>
+                <td>{{item.CidadeComercio}}</td>
+                <td>{{item.Comercio}}</td>
+                <td>{{item.GestorDaVerda}}</td>
             </tr>
         </tbody>
     </table>

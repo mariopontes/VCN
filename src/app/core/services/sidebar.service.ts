@@ -75,6 +75,10 @@ export class SidebarService {
                 {
                     title: 'Emissões',
                     url: '/relatorios/emissoes'
+                },
+                {
+                    title: 'Verba',
+                    url: '/relatorios/verba'
                 }
             ]
         }

@@ -8,7 +8,7 @@
     <app-form-relatorios (emitData)="getEvent($event)" [url]="urlForm"></app-form-relatorios>
 </div>
 
-<ng-container>
+<ng-container *ngIf="showTable && dataMocky">
     <div class="d-flex align-items-center justify-content-between top-tittle-table">
         <div><b> Saldo atual:</b> <span>{{dataMocky.SaldoAtual}}</span> </div>
         <div><b> Soma de crédito no perido:</b> <span>{{dataMocky.SomaCreditoNoPeriodo}}</span> </div>

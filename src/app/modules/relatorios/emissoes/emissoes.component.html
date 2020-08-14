@@ -5,42 +5,7 @@
         <div class="sub-title">Preencha as datas para exibir relatório de cartões emitidos</div>
     </div>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
-        <div class="d-flex flex-wrap">
-
-            <div class="form-group col-md-4" style="max-width: 265px;">
-                <label>Data de</label>
-                <div class="input-group">
-                    <input bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig" type="text" class="form-control form-control-sm input-filter"
-                        formControlName="dataDe">
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-secondary btn-sm calendar" (click)="dp.toggle()">
-                            <i class="fa fa-calendar"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group col-md-4" style="max-width: 265px;">
-                <label>Data até</label>
-                <div class="input-group">
-                    <input bsDatepicker #dp2="bsDatepicker" [bsConfig]="bsConfig" type="text" class="form-control form-control-sm input-filter"
-                        formControlName="dataAte">
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-secondary btn-sm calendar" (click)="dp2.toggle()">
-                            <i class="fa fa-calendar"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-buttons align-items-end" style="margin-bottom: 1rem">
-                <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Consultar" (click)="onSubmit()">
-                </app-btn-loading>
-            </div>
-        </div>
-    </form>
+    <app-form-relatorios (emitData)="getEvent($event)"></app-form-relatorios>
 </div>
 
 <div *ngIf="showTable" class="container-table">

@@ -10,6 +10,7 @@ import { CreditCardComponent } from './components/credit-card/credit-card.compon
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { DataTablesModule } from 'angular-datatables';
+import { FormRelatoriosComponent } from './components/form-relatorios/form-relatorios.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -20,6 +21,7 @@ const maskConfig: Partial<IConfig> = {
   declarations: [
     BtnLoadingComponent,
     CreditCardComponent,
+    FormRelatoriosComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +36,7 @@ const maskConfig: Partial<IConfig> = {
     FormsModule,
     BtnLoadingComponent,
     CreditCardComponent,
+    FormRelatoriosComponent,
     BsDatepickerModule,
     ReactiveFormsModule,
     ModalModule,

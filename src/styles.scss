@@ -160,10 +160,8 @@ button.close {
         font-size: 12px;
     }
 
-    #DataTables_Table_0_filter,
-    #DataTables_Table_1_filter,
-    #DataTables_Table_0_length,
-    #DataTables_Table_1_length {
+    .dataTables_filter,
+    .dataTables_length {
         font-size: 13px;
 
         input {

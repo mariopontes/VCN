@@ -34,47 +34,26 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>61</td>
-                <td>2</td>
-                <td>45067884002</td>
-                <td>2010000205</td>
-                <td>João Victor</td>
-                <td>Mattosinho Barbosa</td>
-                <td>31121450</td>
-                <td>981232140</td>
-                <td>M</td>
-                <td>2000-10-24T00:00:00+00:00</td>
-                <td>joao@teste.com</td>
-                <td>45067884002</td>
-                <td>68</td>
-                <td>apto 98</td>
-                <td>Broklin</td>
-                <td>04581050</td>
-                <td>São Paulo</td>
-                <td>BR</td>
-                <td>2019-10-25T17:35:02.937+00:00</td>
-            </tr>
-            <tr>
-                <td>61</td>
-                <td>2</td>
-                <td>45067884002</td>
-                <td>2010000205</td>
-                <td>João Victor</td>
-                <td>Mattosinho Barbosa</td>
-                <td>31121450</td>
-                <td>981232140</td>
-                <td>M</td>
-                <td>2000-10-24T00:00:00+00:00</td>
-                <td>joao@teste.com</td>
-                <td>45067884002</td>
-                <td>68</td>
-                <td>apto 98</td>
-                <td>Broklin</td>
-                <td>04581050</td>
-                <td>São Paulo</td>
-                <td>BR</td>
-                <td>2019-10-25T17:35:02.937+00:00</td>
+            <tr *ngFor="let item of dataMocky.ResponseRelatorioEmissao">
+                <td>{{item.id}}</td>
+                <td>{{item.typeDocumentHolder_Id}}</td>
+                <td>{{item.cardHolderRef}}</td>
+                <td>{{item.cardSerialNumber}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.tel1}}</td>
+                <td>{{item.tel2}}</td>
+                <td>{{item.gender}}</td>
+                <td>{{item.birthDate}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.document}}</td>
+                <td>{{item.number}}</td>
+                <td>{{item.complement}}</td>
+                <td>{{item.neighborhood}}</td>
+                <td>{{item.postCode}}</td>
+                <td>{{item.city}}</td>
+                <td>{{item.Country}}</td>
+                <td>{{item.insertDate}}</td>
             </tr>
         </tbody>
     </table>

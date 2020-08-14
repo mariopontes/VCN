@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { DataPickerConfig } from '../../utils/data-picker.config';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -17,6 +17,7 @@ defineLocale('pt-br', ptBrLocale);
 export class FormRelatoriosComponent implements OnInit {
 
   @Output() emitData = new EventEmitter;
+  @Input() urlFinal: string;
 
   bsConfig: Partial<BsDatepickerConfig> = DataPickerConfig;
   form: FormGroup;
@@ -54,7 +55,7 @@ export class FormRelatoriosComponent implements OnInit {
     }
 
     this.btnLoading = true;
-    this.currentRequest = this.requestGeneric.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/relatorioverba', dateConverted).subscribe(
+    this.currentRequest = this.requestGeneric.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/${this.urlFinal}`, dateConverted).subscribe(
       res => {
         this.emitData.emit(res);
         this.btnLoading = false;

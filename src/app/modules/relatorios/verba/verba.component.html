@@ -5,73 +5,54 @@
         <div class="sub-title">Preencha as datas para exibir relatório de movimentações de verba na casa</div>
     </div>
 
-    <app-form-relatorios (emitData)="getEvent($event)"></app-form-relatorios>
+    <app-form-relatorios (emitData)="getEvent($event)" urlFinal="relatorioverba"></app-form-relatorios>
 </div>
 
 <div *ngIf="showTable" class="container-table">
     <table class="table table-striped table-bordered table-hover table-sm w-100" datatable [dtOptions]="dtOptions">
         <thead>
             <tr>
-                <th scope="col">DataAutorizacao</th>
-                <th scope="col">Cartao</th>
-                <th scope="col">NomePortador</th>
-                <th scope="col">DocumentoPortador</th>
-                <th scope="col">CNPJContratante</th>
-                <th scope="col">RazaoSocialContratante</th>
-                <th scope="col">ValorMoedaLocal</th>
-                <th scope="col">CodMcc</th>
-                <th scope="col">Mcc</th>
-                <th scope="col">Rubrica</th>
-                <th scope="col">CidadeComercio</th>
-                <th scope="col">Comercio</th>
-                <th scope="col">GestorDaVerda</th>
+                <th scope="col">Data</th>
+                <th scope="col">Produto</th>
+                <th scope="col">Pedido</th>
+                <th scope="col">Credito</th>
+                <th scope="col">Debito</th>
+                <th scope="col">Total debitar</th>
+                <th scope="col">Taxa</th>
+                <th scope="col">Tarifa</th>
+                <th scope="col">Saldo</th>
+                <th scope="col">Origem</th>
+                <th scope="col">Numero Rps</th>
+                <th scope="col">Serie Rps</th>
+                <th scope="col">Numero NF</th>
+                <th scope="col">Pagamento</th>
+                <th scope="col">Data pagamento</th>
+                <th scope="col">Gestor verba</th>
+                <th scope="col">Data transacao</th>
+                <th scope="col">Justificativa</th>
             </tr>
+
         </thead>
         <tbody>
-            <tr>
-                <td>05/02/2019 00:00:00</td>
-                <td>7624240010008426</td>
-                <td>soticia Balsod odranodlaB a</td>
-                <td>57204750799</td>
-                <td>17079937000105</td>
-                <td>PINBANK BRASIL - PAGAMENTOS INTELIGENTES S.A.</td>
-                <td>0.19000</td>
-                <td>5734</td>
-                <td>SOFTWARE DE COMPUTADOR</td>
-                <td>NAO INFORMADO</td>
-                <td>g.co/helppay#</td>
-                <td>GOOGLE *GARENA</td>
-                <td>illessa MarraM assenaV</td>
-            </tr>
-            <tr>
-                <td>asdasd</td>
-                <td>s12s12s12</td>
-                <td>v 12 e 2d</td>
-                <td>57204750799</td>
-                <td>17079937000105</td>
-                <td>PINBANK BRASIL - PAGAMENTOS INTELIGENTES S.A.</td>
-                <td>0.19000</td>
-                <td>5734</td>
-                <td>SOFTWARE DE COMPUTADOR</td>
-                <td>NAO INFORMADO</td>
-                <td>g.co/helppay#</td>
-                <td>GOOGLE *GARENA</td>
-                <td>illessa MarraM assenaV</td>
-            </tr>
-            <tr>
-                <td>asdasd</td>
-                <td>s12s12s12</td>
-                <td>v 12 e 2d</td>
-                <td>57204750799</td>
-                <td>17079937000105</td>
-                <td>PINBANK BRASIL - PAGAMENTOS INTELIGENTES S.A.</td>
-                <td>0.19000</td>
-                <td>5734</td>
-                <td>SOFTWARE DE COMPUTADOR</td>
-                <td>NAO INFORMADO</td>
-                <td>g.co/helppay#</td>
-                <td>GOOGLE *GARENA</td>
-                <td>illessa MarraM assenaV</td>
+            <tr *ngFor="let item of dataMocky.ItemRelatorioVerba">
+                <td>{{item.Data}}</td>
+                <td>{{item.Produto}}</td>
+                <td>{{item.Pedido}}</td>
+                <td>{{item.Credito}}</td>
+                <td>{{item.Debito}}</td>
+                <td>{{item.TotalDebitar}}</td>
+                <td>{{item.Taxa}}</td>
+                <td>{{item.Tarifa}}</td>
+                <td>{{item.Saldo}}</td>
+                <td>{{item.Origem}}</td>
+                <td>{{item.NumeroRps}}</td>
+                <td>{{item.SerieRps}}</td>
+                <td>{{item.NumeroNF}}</td>
+                <td>{{item.Pagamento}}</td>
+                <td>{{item.DataPagamento}}</td>
+                <td>{{item.GestorVerba}}</td>
+                <td>{{item.DataTransacao}}</td>
+                <td>{{item.Justificativa}}</td>
             </tr>
         </tbody>
     </table>

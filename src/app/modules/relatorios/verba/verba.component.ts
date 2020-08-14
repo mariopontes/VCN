@@ -13,6 +13,54 @@ export class VerbaComponent implements OnInit {
   showTable: boolean = false;
   data: any;
 
+  dataMocky = {
+    "ItemRelatorioVerba": [
+      {
+        "Data": "20202002 20:12:24",
+        "Produto": "Contract at FAST of the product VCN.",
+        "Pedido": "243",
+        "Credito": "0",
+        "Debito": "10.01",
+        "TotalDebitar": "10.01",
+        "Taxa": "0",
+        "Tarifa": "0",
+        "Saldo": "-10.01",
+        "Origem": "GerarVCN",
+        "NumeroRps": "NAO INFORMADO",
+        "SerieRps": "NAO INFORMADO",
+        "NumeroNF": "NAO INFORMADO",
+        "Pagamento": "NAO INFORMADO",
+        "DataPagamento": "NAO INFORMADO",
+        "GestorVerba": "NAO INFORMADO",
+        "DataTransacao": "NAO INFORMADO",
+        "Justificativa": "NAO INFORMADO"
+      },
+      {
+        "Data": "20202002 20:18:31",
+        "Produto": "Contract at FAST of the product VCN.",
+        "Pedido": "244",
+        "Credito": "0",
+        "Debito": "10.01",
+        "TotalDebitar": "10.01",
+        "Taxa": "0",
+        "Tarifa": "0",
+        "Saldo": "-20.02",
+        "Origem": "GerarVCN",
+        "NumeroRps": "NAO INFORMADO",
+        "SerieRps": "NAO INFORMADO",
+        "NumeroNF": "NAO INFORMADO",
+        "Pagamento": "NAO INFORMADO",
+        "DataPagamento": "NAO INFORMADO",
+        "GestorVerba": "NAO INFORMADO",
+        "DataTransacao": "NAO INFORMADO",
+        "Justificativa": "NAO INFORMADO"
+      }
+    ],
+    "SomaCreditoNoPeriodo": "R$0",
+    "SomaDebitoNoPeriodo": "R$20.02",
+    "SaldoAtual": "R$88735.99"
+  }
+
   constructor() { }
 
   ngOnInit() {

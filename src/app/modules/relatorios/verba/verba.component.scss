@@ -1,0 +1,25 @@
+.top-tittle-table {
+    // color: #162056;
+    font-size: 13px;
+    padding-left: 3em;
+    padding-right: 3em;
+    margin-bottom: -1.5em;
+    margin-top: 2em;
+
+    div {
+        padding-right: 15px;
+
+        &:last-child {
+            padding-right: 0;
+        }
+
+        span {
+            padding: 6px 10px 6px 10px;
+            border-radius: 20px;
+            margin-left: 5px;
+            border: 1px solid #ccc;
+            font-weight: bold;
+            color: #162056;
+        }
+    }
+}

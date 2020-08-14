@@ -5,7 +5,7 @@
         <div class="sub-title">Preencha as datas para exibir relatório de movimentações de créditos</div>
     </div>
 
-    <app-form-relatorios (emitData)="getEvent($event)"></app-form-relatorios>
+    <app-form-relatorios (emitData)="getEvent($event)" [url]="urlForm"></app-form-relatorios>
 </div>
 
 <div *ngIf="showTable" class="container-table">

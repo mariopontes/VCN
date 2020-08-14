@@ -17,7 +17,7 @@ defineLocale('pt-br', ptBrLocale);
 export class FormRelatoriosComponent implements OnInit {
 
   @Output() emitData = new EventEmitter;
-  @Input() urlFinal: string;
+  @Input() url: string;
 
   bsConfig: Partial<BsDatepickerConfig> = DataPickerConfig;
   form: FormGroup;
@@ -55,7 +55,7 @@ export class FormRelatoriosComponent implements OnInit {
     }
 
     this.btnLoading = true;
-    this.currentRequest = this.requestGeneric.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/${this.urlFinal}`, dateConverted).subscribe(
+    this.currentRequest = this.requestGeneric.post(this.url, dateConverted).subscribe(
       res => {
         this.emitData.emit(res);
         this.btnLoading = false;

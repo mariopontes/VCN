@@ -3,7 +3,7 @@ import { RequestGenericService } from 'src/app/core/services/request-generic.ser
 import { environment } from 'src/environments/environment';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { AlertService } from 'src/app/shared/services/alert.service';
+import { AlertService } from 'src/app/core/services/alert.service';
 
 @Component({
   selector: 'app-carga',

@@ -7,7 +7,7 @@ import { DataPickerConfig } from 'src/app/core/config/data-picker.config';
 
 import * as moment from 'moment';
 import { BsModalRef, ModalDirective } from 'ngx-bootstrap/modal';
-import { UF } from '../../../shared/utils/estados-brasileiros'
+import { UF } from '../../../shared/utils/json/estados-brasileiros'
 import { Subscription } from 'rxjs';
 import { defineLocale, ptBrLocale } from 'ngx-bootstrap/chronos';
 defineLocale('pt-br', ptBrLocale);

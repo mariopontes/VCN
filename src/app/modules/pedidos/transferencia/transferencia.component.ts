@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
-import { AlertService } from 'src/app/shared/services/alert.service';
+import { AlertService } from 'src/app/core/services/alert.service';
 import { environment } from 'src/environments/environment';
 
 @Component({

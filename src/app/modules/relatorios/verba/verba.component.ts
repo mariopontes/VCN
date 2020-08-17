@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { tableConfig } from 'src/app/shared/utils/table.config';
+import { tableConfig } from 'src/app/core/config/table.config';
 import { environment } from 'src/environments/environment';
-import { RelatorioVerba } from 'src/app/shared/models/relatorio-verba.model';
+import { RelatorioVerba } from 'src/app/core/models/relatorio-verba.model';
 
 @Component({
   selector: 'app-verba',

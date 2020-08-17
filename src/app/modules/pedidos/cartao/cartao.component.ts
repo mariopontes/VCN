@@ -3,7 +3,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
 import { environment } from 'src/environments/environment';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { DataPickerConfig } from 'src/app/shared/utils/data-picker.config';
+import { DataPickerConfig } from 'src/app/core/config/data-picker.config';
 
 import * as moment from 'moment';
 import { BsModalRef, ModalDirective } from 'ngx-bootstrap/modal';

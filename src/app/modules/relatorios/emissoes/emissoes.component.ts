@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { tableConfig } from 'src/app/shared/utils/table.config';
+import { tableConfig } from 'src/app/core/config/table.config';
 import { environment } from 'src/environments/environment';
-import { RelatorioEmissao } from 'src/app/shared/models/relatorio-emissao.model';
+import { RelatorioEmissao } from 'src/app/core/models/relatorio-emissao.model';
 
 @Component({
   selector: 'app-emissoes',

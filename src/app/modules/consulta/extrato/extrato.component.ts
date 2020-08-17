@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { DataPickerConfig } from 'src/app/shared/utils/data-picker.config';
+import { DataPickerConfig } from 'src/app/core/config/data-picker.config';
 import * as moment from 'moment';
 import { Subscription } from 'rxjs';
 import { defineLocale, ptBrLocale } from 'ngx-bootstrap/chronos';

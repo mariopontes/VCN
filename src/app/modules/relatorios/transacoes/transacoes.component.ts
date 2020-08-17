@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { tableConfig } from 'src/app/shared/utils/table.config';
+import { tableConfig } from 'src/app/core/config/table.config';
 import { environment } from 'src/environments/environment';
-import { RelatorioTransacao } from 'src/app/shared/models/relatorio-transacao.model';
+import { RelatorioTransacao } from 'src/app/core/models/relatorio-transacao.model';
 
 @Component({
   selector: 'app-transacoes',

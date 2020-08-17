@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { DataPickerConfig } from '../../utils/data-picker.config';
+import { DataPickerConfig } from 'src/app/core/config/data-picker.config';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';

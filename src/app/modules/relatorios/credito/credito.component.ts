@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { tableConfig } from 'src/app/shared/utils/table.config';
+import { tableConfig } from 'src/app/core/config/table.config';
 import { environment } from 'src/environments/environment';
-import { RelatorioCredito } from 'src/app/shared/models/relatorio-credito.model';
+import { RelatorioCredito } from 'src/app/core/models/relatorio-credito.model';
 
 @Component({
   selector: 'app-credito',

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RequestGenericService } from '../../services/request-generic.service';
-import { HttpClient } from '@angular/common/http';
-import { AuthenticationService } from 'src/app/auth/authentication.service';
+import { AuthenticationService } from 'src/app/core/services/authentication.service';
 
 @Component({
   selector: 'app-header',

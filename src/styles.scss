@@ -140,6 +140,7 @@ button.close {
         th {
             font-size: 13px;
             border-bottom: none !important;
+            padding-left: 10px !important;
         }
 
         .sorting {
@@ -149,7 +150,7 @@ button.close {
         td {
             font-size: 12px;
             white-space: nowrap;
-            padding-left: 18px !important;
+            // padding-left: 18px !important;
         }
 
         .dataTable thead .sorting {

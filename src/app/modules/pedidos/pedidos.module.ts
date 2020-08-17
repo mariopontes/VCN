@@ -6,6 +6,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CartaoComponent } from './cartao/cartao.component';
 import { CargaComponent } from './carga/carga.component';
 import { TransferenciaComponent } from './transferencia/transferencia.component';
+import { BloqueioComponent } from './bloqueio/bloqueio.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { TransferenciaComponent } from './transferencia/transferencia.component'
     CartaoComponent,
     CargaComponent,
     TransferenciaComponent,
+    BloqueioComponent,
   ],
   imports: [
     CommonModule,

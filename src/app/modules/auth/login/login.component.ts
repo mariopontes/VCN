@@ -30,28 +30,7 @@ export class LoginComponent implements OnInit {
       erro => {
         this.loading = false;
         this.btnLogin = 'login';
-        this.sendAlert();
       })
-  }
-
-  public sendAlert() {
-
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 4000,
-      timerProgressBar: true,
-      onOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
-
-    Toast.fire({
-      icon: 'error',
-      title: 'Não foi possível logar'
-    })
   }
 
 }

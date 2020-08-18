@@ -40,7 +40,7 @@ export class TransferenciaComponent implements OnInit {
     this.btnLoading = true;
     this.currentRequest = this.reqGeneric.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/transferencia/entrecartoes', this.form.value).subscribe(
       (res: any) => {
-        this.alertService.successAlert(`Operação realizada com sucesso!`)
+        this.alertService.notify('success', 'Operação realizada com sucesso!')
         this.btnLoading = false;
         this.form.reset();
       },
@@ -48,3 +48,5 @@ export class TransferenciaComponent implements OnInit {
   }
 
 }
+
+

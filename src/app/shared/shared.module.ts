@@ -5,7 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BtnLoadingComponent } from './components/btn-loading/btn-loading.component';
-import { AlertService } from '../core/services/alert.service';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
@@ -44,8 +43,6 @@ const maskConfig: Partial<IConfig> = {
     DataTablesModule,
     NgxMaskModule
   ],
-  providers: [
-    AlertService
-  ]
+  providers: []
 })
 export class SharedModule { }

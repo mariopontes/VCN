@@ -1,0 +1,16 @@
+.container-alert {
+    position: fixed;
+    top: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+
+    .content-alert {
+        padding: 7px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 25px;
+    }
+}

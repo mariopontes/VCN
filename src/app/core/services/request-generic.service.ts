@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError, Observable } from 'rxjs';
-import Swal from 'sweetalert2';
+import { AlertService } from './alert.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,14 @@ export class RequestGenericService {
   httpOptions: { headers: HttpHeaders };
 
   constructor(
-    private http: HttpClient
-  ) { }
+    private http: HttpClient,
+    private alertService: AlertService
+  ) {
+    // setTimeout(() => {
+    //   debugger
+    //   this.alertService.notify('success', 'Operação realizada com sucesso!')
+    // }, 3000);
+  }
 
   private setHeaders() {
     this.httpOptions = {
@@ -26,46 +32,37 @@ export class RequestGenericService {
 
   get(url: string, useHeaders?: boolean) {
     useHeaders == true || useHeaders == undefined ? this.setHeaders() : null;
-    return this.http.get(url, this.httpOptions).pipe(catchError(this.handleError)
-    )
+    return this.http.get(url, this.httpOptions).pipe(catchError((err) => {
+      this.alertError(err.error.mensagem)
+      return throwError(err);
+    }))
   }
 
   post(url: string, body: object, useHeaders?: boolean): Observable<any> {
     useHeaders == true || useHeaders == undefined ? this.setHeaders() : null;
-    return this.http.post(url, body, this.httpOptions).pipe(catchError(this.handleError)
-    )
+    return this.http.post(url, body, this.httpOptions).pipe(catchError((err) => {
+      this.alertError(err.error.mensagem)
+      return throwError(err);
+    }))
   }
 
   update(url: string, body: object, useHeaders?: boolean) {
     useHeaders == true || useHeaders == undefined ? this.setHeaders() : null;
-    return this.http.put(url, body, this.httpOptions).pipe(catchError(this.handleError)
-    )
+    return this.http.put(url, body, this.httpOptions).pipe(catchError((err) => {
+      this.alertError(err.error.mensagem)
+      return throwError(err);
+    }))
   }
 
   delete(url: string, useHeaders?: boolean) {
     useHeaders == true || useHeaders == undefined ? this.setHeaders() : null;
-    return this.http.delete(url, this.httpOptions).pipe(catchError(this.handleError)
-    )
+    return this.http.delete(url, this.httpOptions).pipe(catchError((err) => {
+      this.alertError(err.error.mensagem)
+      return throwError(err);
+    }))
   }
 
-  handleError(error: HttpErrorResponse) {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 5000,
-      timerProgressBar: true,
-      onOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
-
-    Toast.fire({
-      icon: 'error',
-      title: error.error.mensagem
-    })
-
-    return throwError(error);
+  private alertError(message: string) {
+    this.alertService.notify('error', message)
   }
 }

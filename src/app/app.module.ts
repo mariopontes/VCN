@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import localePt from "@angular/common/locales/pt";
+import { AlertComponent } from './core/components/alert/alert.component';
+import { SharedModule } from './shared/shared.module';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = { suppressScrollX: true };
 const maskConfig: Partial<IConfig> = { validation: true };
@@ -25,7 +27,8 @@ const maskConfig: Partial<IConfig> = { validation: true };
   declarations: [
     AppComponent,
     SideMenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -35,13 +38,14 @@ const maskConfig: Partial<IConfig> = { validation: true };
     FormsModule,
     PerfectScrollbarModule,
     BrowserAnimationsModule,
-    NgxMaskModule.forRoot(maskConfig)
+    NgxMaskModule.forRoot(maskConfig),
   ],
-  providers: [{
-    provide: PERFECT_SCROLLBAR_CONFIG,
-    useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
-  },
-  { provide: LOCALE_ID, useValue: 'pt-Br' }
+  providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+    },
+    { provide: LOCALE_ID, useValue: 'pt-Br' }
   ],
   bootstrap: [AppComponent]
 })

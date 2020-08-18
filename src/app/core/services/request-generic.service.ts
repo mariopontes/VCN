@@ -13,7 +13,7 @@ export class RequestGenericService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {}
 
   private setHeaders() {
     this.httpOptions = {
@@ -30,7 +30,7 @@ export class RequestGenericService {
     )
   }
 
-  post(url?: string, body?: object, useHeaders?: boolean): Observable<any> {
+  post(url: string, body: object, useHeaders?: boolean): Observable<any> {
     useHeaders == true || useHeaders == undefined ? this.setHeaders() : null;
     return this.http.post(url, body, this.httpOptions).pipe(catchError(this.handleError)
     )

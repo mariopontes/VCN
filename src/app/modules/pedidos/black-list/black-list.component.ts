@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
+import { environment } from 'src/environments/environment';
+import { AlertService } from 'src/app/shared/services/alert.service';
 
 @Component({
   selector: 'app-black-list',
@@ -10,10 +12,12 @@ import { RequestGenericService } from 'src/app/core/services/request-generic.ser
 export class BlackListComponent implements OnInit {
 
   form: FormGroup;
+  loading = false;
 
   constructor(
     private fb: FormBuilder,
-    private requestGenericService: RequestGenericService
+    private requestGenericService: RequestGenericService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
@@ -22,9 +26,13 @@ export class BlackListComponent implements OnInit {
     })
   }
   onSubmit() {
-    this.requestGenericService.post('https://qa-gw.eprepay.com.br/esppvcn/v1.0.0/cartaovirtual/blacklist/remover', this.form.value)
-      .subscribe(res => console.log(res),
-        error => console.log(error)
-      )
+    this.loading = true;
+    this.requestGenericService.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/blacklist/remover`, this.form.value).subscribe(
+      res => {
+        this.loading = false;
+        this.alertService.successAlert(`Operação realizada com sucesso!`);
+      },
+      error => this.loading = false
+    )
   }
 }

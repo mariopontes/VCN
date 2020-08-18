@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
 import { AlertService } from 'src/app/shared/services/alert.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-bloqueio',
@@ -26,16 +27,12 @@ export class BloqueioComponent implements OnInit {
   }
   onSubmit() {
     this.loading = true;
-    this.requestGenericService.post('https://qa-gw.eprepay.com.br/esppvcn/v1.0.0/cartaovirtual/bloquear', this.form.value).subscribe(
+    this.requestGenericService.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/bloquear`, this.form.value).subscribe(
       res => {
         this.loading = false;
         this.alertService.successAlert(`Operação realizada com sucesso!`);
-        console.log(res);
       },
-      error => {
-        this.loading = false;
-        console.log(error);
-      }
+      error => this.loading = false
     )
   }
 }

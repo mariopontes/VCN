@@ -1,4 +1,3 @@
-<p>black-list works!</p>
 <div class="content-form">
 
   <div class="container-title">
@@ -13,12 +12,8 @@
               <label>Proxy</label>
               <input type="text" class="form-control form-control-sm" formControlName="proxy">
           </div>
-          <!--<div class="form-buttons" style="margin-bottom: 1em">
-              <app-btn-loading [loading]="false" [disable]="form.invalid" title="Bloquear" (click)="onSubmit()">
-              </app-btn-loading>-->
               <div class="form-buttons" style="margin-bottom: 1em">
-              <!--<button class = "btn btn-primary btn-sm" [disabled]="form.status == 'INVALID'">Bloquear</button>-->
-              <app-btn-loading [loading]="false" [disable]="form.invalid" title="Remover" (click)="onSubmit()">
+              <app-btn-loading [loading]="loading" [disable]="form.invalid || loading" title="Remover" (click)="onSubmit()">
               </app-btn-loading>
             </div>
       </div>

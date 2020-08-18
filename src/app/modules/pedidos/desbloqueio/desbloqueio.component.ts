@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
+import { environment } from 'src/environments/environment';
+import { AlertService } from 'src/app/shared/services/alert.service';
 
 @Component({
   selector: 'app-desbloqueio',
@@ -10,22 +12,28 @@ import { RequestGenericService } from 'src/app/core/services/request-generic.ser
 export class DesbloqueioComponent implements OnInit {
 
   form: FormGroup;
+  loading = false;
 
   constructor(
     private fb: FormBuilder,
-    private requestGenericService: RequestGenericService
+    private requestGenericService: RequestGenericService,
+    private alertService: AlertService
   )
   { }
 
   ngOnInit() {
     this.form = this.fb.group({
-      proxy: [null, [Validators.required, Validators.min(3)]]
+      proxy: ['1400101860799451', [Validators.required, Validators.min(3)]]
     })
   }
   onSubmit(){
-    this.requestGenericService.post('https://qa-gw.eprepay.com.br/esppvcn/v1.0.0/cartaovirtual/ativar', this.form.value).subscribe(
-    res => console.log(res),
-    error => console.log(error)
+    this.loading = true;
+    this.requestGenericService.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/ativar`, this.form.value).subscribe(
+    res => {
+      this.loading = false;
+      this.alertService.successAlert(`Operação realizada com sucesso!`);
+    },
+    error => this.loading = false
     )
   }
 }

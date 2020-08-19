@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
+import { AlertService } from 'src/app/core/services/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   loading: boolean = false;
 
   constructor(
+    private alertService: AlertService,
     private auth: AuthenticationService,
     private router: Router
   ) { }
@@ -27,9 +28,10 @@ export class LoginComponent implements OnInit {
 
     this.auth.login('', '').subscribe(
       res => this.router.navigate(['/home']),
-      erro => {
+      error => {
         this.loading = false;
         this.btnLogin = 'login';
+        this.alertService.notify('error', 'Não foi possivel se logar no sistema')
       })
   }
 

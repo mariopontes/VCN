@@ -10,6 +10,7 @@ import { BsModalRef, ModalDirective } from 'ngx-bootstrap/modal';
 import { UF } from '../../../shared/utils/json/estados-brasileiros'
 import { Subscription } from 'rxjs';
 import { defineLocale, ptBrLocale } from 'ngx-bootstrap/chronos';
+import { AlertService } from 'src/app/core/services/alert.service';
 defineLocale('pt-br', ptBrLocale);
 
 @Component({
@@ -35,6 +36,7 @@ export class CartaoComponent implements OnInit, OnDestroy {
   constructor(
     private localeService: BsLocaleService,
     private reqGeneric: RequestGenericService,
+    private alertService: AlertService,
     private fb: FormBuilder
   ) { }
 
@@ -52,7 +54,7 @@ export class CartaoComponent implements OnInit, OnDestroy {
       valor: ['10', [Validators.required]],
 
       nome: ['Roberto', Validators.required],
-      email: ['teste@homg.com', [Validators.required]],
+      email: ['teste@homg.com', [Validators.required, Validators.email]],
       sobrenome: ['Gonçalves', [Validators.required]],
       dataNascimento: [moment().subtract(18, 'years').format('DD/MM/YYYY'), [Validators.required]],
       sexo: ['M', [Validators.required]],
@@ -61,7 +63,7 @@ export class CartaoComponent implements OnInit, OnDestroy {
       nomePai: ['tomas edson', [Validators.required]],
       nomeMae: ['marileuza pereira', [Validators.required]],
 
-      documento: ['91549903004', [Validators.required]],
+      documento: ['91549903004', [Validators.required, Validators.pattern(/^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2})$/)]],
       orgaoEmissor: ['SSP'],
       estadoEmissor: ['SP'],
 
@@ -79,7 +81,32 @@ export class CartaoComponent implements OnInit, OnDestroy {
     })
   }
 
-  generateCard() {
+  setBorderColor(controlName: string): string {
+    if (this.form.get(controlName).dirty || this.form.get(controlName).touched) {
+      if (this.form.get(controlName).valid) {
+        return 'is-valid';
+      } else {
+        return 'is-invalid';
+      }
+    }
+  }
+
+  resetForm() {
+    this.form.reset();
+    this.form.patchValue({
+      orgaoEmissor: ['SSP'],
+      estadoEmissor: ['SP']
+    })
+  }
+
+  onSubmit() {
+    console.log(this.form.value)
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      this.alertService.notify('warning', 'Preencha corretamente os campos inválidos.')
+      return
+    }
+
     this.form.get('dataNascimento').setValue(moment(this.form.get('dataNascimento').value, 'DD/MM/YYYY').format('YYYY/MM/DD'));
     this.btnLoading = true;
     this.currentRequest = this.reqGeneric.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/emitir`, this.form.value).subscribe(

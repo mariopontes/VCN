@@ -4,36 +4,38 @@
         <div class="sub-title">Preencha os dados para solicitação do cartão</div>
     </div>
 
-    <form [formGroup]="form" (ngSubmit)="generateCard()">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="d-flex w-100 flex-wrap">
 
             <div class="form-group col-md-3">
                 <label>Valor da carga <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" prefix="R$ " mask="separator.2" thousandSeparator="." formControlName="valor">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('valor')" mask="separator.2" thousandSeparator="."
+                    formControlName="valor">
             </div>
 
             <div class="break-line"></div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label>Nome <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="nome">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('nome')" formControlName="nome">
             </div>
 
-            <div class="form-group  col-md-6">
+            <div class="form-group col-md-3">
                 <label>Sobrenome <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="nome">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('sobrenome')" formControlName="sobrenome">
             </div>
 
             <div class="form-group col-md-3">
                 <label>CPF/CNPJ <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" mask="000.000.000-00" formControlName="documento">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('documento')" mask="000.000.000-00"
+                    formControlName="documento">
             </div>
 
             <div class="form-group col-md-3">
                 <label>Nascimento <span class="text-danger">*</span></label>
                 <div class="input-group">
-                    <input bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig" type="text" class="form-control form-control-sm input-filter"
-                        formControlName="dataNascimento">
+                    <input bsDatepicker #dp="bsDatepicker" [ngClass]="setBorderColor('dataNascimento')" [bsConfig]="bsConfig" type="text"
+                        class="form-control form-control-sm input-filter" formControlName="dataNascimento">
                     <div class="input-group-append">
                         <button type="button" class="btn btn-secondary btn-sm calendar" (click)="dp.toggle()">
                             <i class="fa fa-calendar"></i>
@@ -42,39 +44,46 @@
                 </div>
             </div>
 
-            <div class="form-group col-md-3">
-                <label>Sexo <span class="text-danger">*</span></label>
-                <ng-select class="w-100" [clearable]="false" [searchable]="false" formControlName="sexo">
-                    <ng-option value="M">Masculino</ng-option>
-                    <ng-option value="F">Feminino</ng-option>
-                </ng-select>
+            <div class="form-group col-md-3 d-flex justify-content-between">
+                <div class="col-md-6 p-0">
+                    <label>Sexo <span class="text-danger">*</span></label>
+                    <ng-select class="w-100" [ngClass]="setBorderColor('sexo')" [markFirst]="false" [clearable]="false" [searchable]="false"
+                        formControlName="sexo">
+                        <ng-option value="M">Masculino</ng-option>
+                        <ng-option value="F">Feminino</ng-option>
+                    </ng-select>
+                </div>
+
+                <div class="col-md-6 p-0" style="margin-left: 5px;">
+                    <label>Nacionalidade <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('nacionalidade')"
+                        formControlName="nacionalidade">
+                </div>
             </div>
 
             <div class="form-group col-md-3">
-                <label>Nacionalidade <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="nacionalidade">
-            </div>
-
-            <div class="form-group col-md-6">
                 <label>E-mail <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="email">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('email')" formControlName="email">
             </div>
 
             <div class="break-line"></div>
 
             <div class="form-group col-md-3">
                 <label>Telefone <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" mask="(00) 0000-0000" formControlName="telefone">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('telefone')" mask="(00) 0000-0000"
+                    formControlName="telefone">
             </div>
 
             <div class="form-group col-md-3">
                 <label>Celular <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" mask="(00) 0 0000-0000" formControlName="celular">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('celular')" mask="(00) 0 0000-0000"
+                    formControlName="celular">
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label>Estado Civil <span class="text-danger">*</span></label>
-                <ng-select class="w-100" [clearable]="false" [searchable]="false" formControlName="estadoCivil">
+                <ng-select class="w-100" [ngClass]="setBorderColor('estadoCivil')" [clearable]="false" [searchable]="false"
+                    formControlName="estadoCivil">
                     <ng-option value="solteiro">Solteiro (a)</ng-option>
                     <ng-option value="casado">Casado (a)</ng-option>
                     <ng-option value="divorciado">Divorciado (a)</ng-option>
@@ -82,63 +91,69 @@
                 </ng-select>
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label>Nome do pai <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="nomePai">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('nomePai')" formControlName="nomePai">
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label>Nome da mãe <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="nomeMae">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('nomeMae')" formControlName="nomeMae">
             </div>
 
             <div class="break-line"></div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label>Rua <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="rua">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('rua')" formControlName="rua">
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label>Bairro <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="bairro">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('bairro')" formControlName="bairro">
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label>Cidade <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="cidade">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('cidade')" formControlName="cidade">
+            </div>
+
+            <div class="form-group col-md-3 d-flex justify-content-between">
+                <div class="col-md-6 p-0">
+                    <label>Número <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('numero')" formControlName="numero">
+                </div>
+
+                <div class="col-md-6 p-0" style="margin-left: 5px;">
+                    <label>Estado <span class="text-danger">*</span></label>
+                    <ng-select class="w-100" [ngClass]="setBorderColor('estado')" [dropdownPosition]="'top'" [items]="estadosBrasileiros"
+                        bindLabel="nome" bindValue="sigla" [clearable]="false" notFoundText="Não encontrado" formControlName="estado">
+                    </ng-select>
+                </div>
             </div>
 
             <div class="form-group col-md-3">
-                <label>Número <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="numero">
+                <label>CEP <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('cep')" mask="00000-000" formControlName="cep">
             </div>
 
             <div class="form-group col-md-3">
-                <label>Estado <span class="text-danger">*</span></label>
-                <ng-select class="w-100" [dropdownPosition]="'top'" [items]="estadosBrasileiros" bindLabel="nome" bindValue="sigla"
-                    [clearable]="false" notFoundText="Não encontrado" formControlName="estado">
-                </ng-select>
+                <label>Complemento <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('complemento')" formControlName="complemento">
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label>País <span class="text-danger">*</span></label>
-                <ng-select class="w-100" [clearable]="false" [searchable]="false" formControlName="pais">
+                <ng-select class="w-100" [ngClass]="setBorderColor('pais')" [clearable]="false" [searchable]="false" formControlName="pais">
                     <ng-option value="BR">Brasil</ng-option>
                 </ng-select>
             </div>
-
-            <div class="form-group col-md-6">
-                <label>Complemento <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="complemento">
-            </div>
-
         </div>
     </form>
 
     <div class="content-button">
-        <button type="button" class="btn btn-secondary btn-sm btn-clear" (click)="this.form.reset()">Limpar</button>
-        <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" (click)="generateCard()"></app-btn-loading>
+        <button type="button" class="btn btn-secondary btn-sm btn-clear" (click)="resetForm()">Limpar</button>
+        <app-btn-loading [loading]="btnLoading" [disable]="btnLoading" (click)="onSubmit()"></app-btn-loading>
     </div>
 
 </div>

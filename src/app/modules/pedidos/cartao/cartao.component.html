@@ -8,29 +8,29 @@
         <div class="d-flex w-100 flex-wrap">
 
             <div class="form-group col-md-3">
-                <label>Valor da carga</label>
+                <label>Valor da carga <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" prefix="R$ " mask="separator.2" thousandSeparator="." formControlName="valor">
             </div>
 
             <div class="break-line"></div>
 
             <div class="form-group col-md-6">
-                <label>Nome</label>
+                <label>Nome <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" formControlName="nome">
             </div>
 
             <div class="form-group  col-md-6">
-                <label>Sobrenome</label>
+                <label>Sobrenome <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" formControlName="nome">
             </div>
 
             <div class="form-group col-md-3">
-                <label>CPF/CNPJ</label>
+                <label>CPF/CNPJ <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" mask="000.000.000-00" formControlName="documento">
             </div>
 
             <div class="form-group col-md-3">
-                <label>Nascimento</label>
+                <label>Nascimento <span class="text-danger">*</span></label>
                 <div class="input-group">
                     <input bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig" type="text" class="form-control form-control-sm input-filter"
                         formControlName="dataNascimento">
@@ -43,7 +43,7 @@
             </div>
 
             <div class="form-group col-md-3">
-                <label>Sexo</label>
+                <label>Sexo <span class="text-danger">*</span></label>
                 <ng-select class="w-100" [clearable]="false" [searchable]="false" formControlName="sexo">
                     <ng-option value="M">Masculino</ng-option>
                     <ng-option value="F">Feminino</ng-option>
@@ -51,29 +51,29 @@
             </div>
 
             <div class="form-group col-md-3">
-                <label>Nacionalidade</label>
+                <label>Nacionalidade <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" formControlName="nacionalidade">
             </div>
 
             <div class="form-group col-md-6">
-                <label>E-mail</label>
+                <label>E-mail <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" formControlName="email">
             </div>
 
             <div class="break-line"></div>
 
             <div class="form-group col-md-3">
-                <label>Telefone</label>
+                <label>Telefone <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" mask="(00) 0000-0000" formControlName="telefone">
             </div>
 
             <div class="form-group col-md-3">
-                <label>Celular</label>
+                <label>Celular <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" mask="(00) 0 0000-0000" formControlName="celular">
             </div>
 
             <div class="form-group col-md-6">
-                <label>Estado Civil</label>
+                <label>Estado Civil <span class="text-danger">*</span></label>
                 <ng-select class="w-100" [clearable]="false" [searchable]="false" formControlName="estadoCivil">
                     <ng-option value="solteiro">Solteiro (a)</ng-option>
                     <ng-option value="casado">Casado (a)</ng-option>
@@ -83,53 +83,53 @@
             </div>
 
             <div class="form-group col-md-6">
-                <label>Nome do pai</label>
+                <label>Nome do pai <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" formControlName="nomePai">
             </div>
 
             <div class="form-group col-md-6">
-                <label>Nome da mãe</label>
+                <label>Nome da mãe <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" formControlName="nomeMae">
             </div>
 
             <div class="break-line"></div>
 
             <div class="form-group col-md-6">
-                <label>Rua</label>
+                <label>Rua <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" formControlName="rua">
             </div>
 
             <div class="form-group col-md-6">
-                <label>Bairro</label>
+                <label>Bairro <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" formControlName="bairro">
             </div>
 
             <div class="form-group col-md-6">
-                <label>Cidade</label>
+                <label>Cidade <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" formControlName="cidade">
             </div>
 
             <div class="form-group col-md-3">
-                <label>Número</label>
+                <label>Número <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" formControlName="numero">
             </div>
 
             <div class="form-group col-md-3">
-                <label>Estado</label>
+                <label>Estado <span class="text-danger">*</span></label>
                 <ng-select class="w-100" [dropdownPosition]="'top'" [items]="estadosBrasileiros" bindLabel="nome" bindValue="sigla"
                     [clearable]="false" notFoundText="Não encontrado" formControlName="estado">
                 </ng-select>
             </div>
 
             <div class="form-group col-md-6">
-                <label>País</label>
+                <label>País <span class="text-danger">*</span></label>
                 <ng-select class="w-100" [clearable]="false" [searchable]="false" formControlName="pais">
                     <ng-option value="BR">Brasil</ng-option>
                 </ng-select>
             </div>
 
             <div class="form-group col-md-6">
-                <label>Complemento</label>
+                <label>Complemento <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" formControlName="complemento">
             </div>
 

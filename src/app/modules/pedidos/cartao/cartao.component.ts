@@ -49,7 +49,7 @@ export class CartaoComponent implements OnInit, OnDestroy {
 
   createForm() {
     this.form = this.fb.group({
-      valor: [10, [Validators.required]],
+      valor: ['10', [Validators.required]],
 
       nome: ['Roberto', Validators.required],
       email: ['teste@homg.com', [Validators.required, Validators.email]],

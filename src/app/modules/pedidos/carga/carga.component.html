@@ -10,12 +10,12 @@
         <div class="d-flex align-items-end">
             <div class="form-group col-md-4" style="max-width: 225px;">
                 <label>Proxy <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('proxy')" formControlName="proxy">
+                <input type="text" class="form-control form-control-sm" [ngClass]="fv.checkInput(form.get('proxy'))" formControlName="proxy">
             </div>
             <div class="form-group col-md-4" style="max-width: 200px;">
                 <label>Valor <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('valor')" mask="separator.2" thousandSeparator="."
-                    formControlName="valor">
+                <input type="text" class="form-control form-control-sm" [ngClass]="fv.checkInput(form.get('valor'))" mask="separator.2"
+                    thousandSeparator="." formControlName="valor">
             </div>
 
             <div class="form-buttons" style="margin-bottom: 1em">

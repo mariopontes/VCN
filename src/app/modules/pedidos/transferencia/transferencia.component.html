@@ -10,17 +10,17 @@
         <div class="d-flex align-items-end">
             <div class="form-group col-md-4" style="max-width: 225px;">
                 <label>Proxy (Remetente) <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('proxyde')" formControlName="proxyde">
+                <input type="text" class="form-control form-control-sm" [ngClass]="fv.checkInput(form.get('proxyde'))" formControlName="proxyde">
             </div>
             <div class="form-group col-md-4" style="max-width: 225px;">
                 <label>Proxy (Destinatário) <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('proxyate')" formControlName="proxyate">
+                <input type="text" class="form-control form-control-sm" [ngClass]="fv.checkInput(form.get('proxyate'))" formControlName="proxyate">
             </div>
 
             <div class="form-group col-md-4" style="max-width: 175px;">
                 <label>Valor <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('valor')" mask="separator.2" thousandSeparator="."
-                    formControlName="valor">
+                <input type="text" class="form-control form-control-sm" [ngClass]="fv.checkInput(form.get('valor'))" mask="separator.2"
+                    thousandSeparator="." formControlName="valor">
             </div>
 
 

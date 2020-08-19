@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AlertService } from 'src/app/core/services/alert.service';
+import { FormsValidatorsService } from 'src/app/core/services/forms-validators.service';
 
 @Component({
   selector: 'app-carga',
@@ -18,6 +19,7 @@ export class CargaComponent implements OnInit, OnDestroy {
   currentRequest: Subscription;
 
   constructor(
+    public fv: FormsValidatorsService,
     private reqGeneric: RequestGenericService,
     private fb: FormBuilder,
     private alertService: AlertService
@@ -33,18 +35,6 @@ export class CargaComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.currentRequest ? this.currentRequest.unsubscribe() : null;
   }
-
-
-  setBorderColor(controlName: string): string {
-    if (this.form.get(controlName).dirty || this.form.get(controlName).touched) {
-      if (this.form.get(controlName).valid) {
-        return 'is-valid';
-      } else {
-        return 'is-invalid';
-      }
-    }
-  }
-
 
   onSubmit() {
     if (this.form.invalid) {

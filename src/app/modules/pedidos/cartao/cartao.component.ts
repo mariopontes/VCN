@@ -11,6 +11,7 @@ import { UF } from '../../../shared/utils/json/estados-brasileiros'
 import { Subscription } from 'rxjs';
 import { defineLocale, ptBrLocale } from 'ngx-bootstrap/chronos';
 import { AlertService } from 'src/app/core/services/alert.service';
+import { FormsValidatorsService } from 'src/app/core/services/forms-validators.service';
 defineLocale('pt-br', ptBrLocale);
 
 @Component({
@@ -34,6 +35,7 @@ export class CartaoComponent implements OnInit, OnDestroy {
   creditCard: any;
 
   constructor(
+    public fv: FormsValidatorsService,
     private localeService: BsLocaleService,
     private reqGeneric: RequestGenericService,
     private alertService: AlertService,
@@ -79,16 +81,6 @@ export class CartaoComponent implements OnInit, OnDestroy {
       cep: ['0116542695', [Validators.required]],
       pais: ['BR', [Validators.required]],
     })
-  }
-
-  setBorderColor(controlName: string): string {
-    if (this.form.get(controlName).dirty || this.form.get(controlName).touched) {
-      if (this.form.get(controlName).valid) {
-        return 'is-valid';
-      } else {
-        return 'is-invalid';
-      }
-    }
   }
 
   resetForm() {

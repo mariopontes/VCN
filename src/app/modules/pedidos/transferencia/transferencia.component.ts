@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { environment } from 'src/environments/environment';
+import { FormsValidatorsService } from 'src/app/core/services/forms-validators.service';
 
 @Component({
   selector: 'app-transferencia',
@@ -18,6 +19,7 @@ export class TransferenciaComponent implements OnInit {
   currentRequest: Subscription;
 
   constructor(
+    public fv: FormsValidatorsService,
     private reqGeneric: RequestGenericService,
     private fb: FormBuilder,
     private alertService: AlertService
@@ -33,16 +35,6 @@ export class TransferenciaComponent implements OnInit {
 
   ngOnDestroy() {
     this.currentRequest ? this.currentRequest.unsubscribe() : null;
-  }
-
-  setBorderColor(controlName: string): string {
-    if (this.form.get(controlName).dirty || this.form.get(controlName).touched) {
-      if (this.form.get(controlName).valid) {
-        return 'is-valid';
-      } else {
-        return 'is-invalid';
-      }
-    }
   }
 
   onSubmit() {

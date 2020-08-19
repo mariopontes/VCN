@@ -40,6 +40,18 @@ export class SidebarService {
                     title: 'Transferencia entre cartões',
                     url: '/pedidos/transferencia-entre-cartoes'
                 },
+                {
+                    title: 'Bloqueio de Cartão',
+                    url: '/pedidos/bloqueio'
+                },
+                {
+                    title: 'Desbloqueio de Cartão',
+                    url: '/pedidos/desbloqueio'
+                },
+                {
+                    title: 'BlackList - Remover Cartão',
+                    url: '/pedidos/blacklist'
+                },
             ]
         },
         {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
 import { environment } from 'src/environments/environment';
-import { AlertService } from 'src/app/shared/services/alert.service';
+import { AlertService } from 'src/app/core/services/alert.service';
 
 @Component({
   selector: 'app-black-list',
@@ -30,7 +30,7 @@ export class BlackListComponent implements OnInit {
     this.requestGenericService.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/blacklist/remover`, this.form.value).subscribe(
       res => {
         this.loading = false;
-        this.alertService.successAlert(`Operação realizada com sucesso!`);
+        this.alertService.notify('success', 'Operação realizada com sucesso!');
       },
       error => this.loading = false
     )

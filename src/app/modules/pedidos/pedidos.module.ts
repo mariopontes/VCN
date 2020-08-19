@@ -7,6 +7,8 @@ import { CartaoComponent } from './cartao/cartao.component';
 import { CargaComponent } from './carga/carga.component';
 import { TransferenciaComponent } from './transferencia/transferencia.component';
 import { BloqueioComponent } from './bloqueio/bloqueio.component';
+import { DesbloqueioComponent } from './desbloqueio/desbloqueio.component';
+import { BlackListComponent } from './black-list/black-list.component';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import { BloqueioComponent } from './bloqueio/bloqueio.component';
     CargaComponent,
     TransferenciaComponent,
     BloqueioComponent,
+    DesbloqueioComponent,
+    BlackListComponent,
   ],
   imports: [
     CommonModule,

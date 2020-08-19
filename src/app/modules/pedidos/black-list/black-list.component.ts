@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RequestGenericService } from 'src/app/core/services/request-generic.service';
-import { AlertService } from 'src/app/shared/services/alert.service';
 import { environment } from 'src/environments/environment';
+import { AlertService } from 'src/app/shared/services/alert.service';
 
 @Component({
-  selector: 'app-bloqueio',
-  templateUrl: './bloqueio.component.html',
-  styleUrls: ['./bloqueio.component.scss']
+  selector: 'app-black-list',
+  templateUrl: './black-list.component.html',
+  styleUrls: ['./black-list.component.scss']
 })
-export class BloqueioComponent implements OnInit {
+export class BlackListComponent implements OnInit {
 
   form: FormGroup;
   loading = false;
@@ -27,7 +27,7 @@ export class BloqueioComponent implements OnInit {
   }
   onSubmit() {
     this.loading = true;
-    this.requestGenericService.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/bloquear`, this.form.value).subscribe(
+    this.requestGenericService.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/blacklist/remover`, this.form.value).subscribe(
       res => {
         this.loading = false;
         this.alertService.successAlert(`Operação realizada com sucesso!`);

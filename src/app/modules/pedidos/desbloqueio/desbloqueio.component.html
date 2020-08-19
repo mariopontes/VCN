@@ -1,0 +1,21 @@
+<div class="content-form">
+
+  <div class="container-title">
+      <h1>Desbloqueio de Cartão Virtual</h1>
+      <div class="sub-title">Preencha os dados para desbloqueio do cartão</div>
+  </div>
+
+  <form [formGroup] = "form" (ngSubmit) = "onSubmit()">
+      <div class="d-flex"></div>
+      <div class="d-flex align-items-end">
+          <div class="form-group col-md-4" style="max-width: 225px;">
+              <label>Proxy</label>
+              <input type="text" class="form-control form-control-sm" formControlName="proxy">
+          </div>
+              <div class="form-buttons" style="margin-bottom: 1em">
+              <app-btn-loading [loading]="loading" [disable]="form.invalid || loading" title="Desbloquear" (click)="onSubmit()">
+              </app-btn-loading>
+            </div>
+      </div>
+  </form>
+</div>

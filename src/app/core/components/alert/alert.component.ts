@@ -39,7 +39,7 @@ export class AlertComponent implements OnInit {
         this.messageSuccess = event.message;
         this.alertState = 'visible';
       }),
-      switchMap(() => timer(4000)) // troca o Observable, faz o unsubscribe se houver Observable anterior ativo
+      switchMap(() => timer(5000)) // troca o Observable, faz o unsubscribe se houver Observable anterior ativo
     ).subscribe(() => this.alertState = 'hidden')
   }
 

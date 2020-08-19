@@ -52,7 +52,7 @@ export class CartaoComponent implements OnInit, OnDestroy {
       valor: ['10', [Validators.required]],
 
       nome: ['Roberto', Validators.required],
-      email: ['teste@homg.com', [Validators.required, Validators.email]],
+      email: ['teste@homg.com', [Validators.required]],
       sobrenome: ['Gonçalves', [Validators.required]],
       dataNascimento: [moment().subtract(18, 'years').format('DD/MM/YYYY'), [Validators.required]],
       sexo: ['M', [Validators.required]],

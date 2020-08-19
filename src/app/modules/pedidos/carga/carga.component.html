@@ -10,28 +10,18 @@
         <div class="d-flex align-items-end">
             <div class="form-group col-md-4" style="max-width: 225px;">
                 <label>Proxy <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="proxy">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('proxy')" formControlName="proxy">
             </div>
             <div class="form-group col-md-4" style="max-width: 200px;">
                 <label>Valor <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" prefix="R$ " mask="separator.2" thousandSeparator="." formControlName="valor">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('valor')" mask="separator.2" thousandSeparator="."
+                    formControlName="valor">
             </div>
 
             <div class="form-buttons" style="margin-bottom: 1em">
-                <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Adicionar" (click)="onSubmit()">
+                <app-btn-loading [loading]="btnLoading" [disable]="btnLoading" title="Adicionar" (click)="onSubmit()">
                 </app-btn-loading>
             </div>
         </div>
     </form>
-
-    <!-- <div class="container-result">
-        <h3>Transação realizada com sucesso.</h3>
-        <div>Adicionado R$ 10 no cartão/proxy 1400101860799451</div>
-    </div> -->
 </div>
-
-<!-- <div class="container-alert">
-    <div class="alert alert-success">
-        <i class="fas fa-check-circle"></i> <span style="margin-left: 15px;">Operação Realizada com sucesso!</span>
-    </div>
-</div> -->

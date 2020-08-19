@@ -35,7 +35,24 @@ export class CargaComponent implements OnInit, OnDestroy {
   }
 
 
+  setBorderColor(controlName: string): string {
+    if (this.form.get(controlName).dirty || this.form.get(controlName).touched) {
+      if (this.form.get(controlName).valid) {
+        return 'is-valid';
+      } else {
+        return 'is-invalid';
+      }
+    }
+  }
+
+
   onSubmit() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      this.alertService.notify('warning', 'Preencha corretamente os campos inválidos.')
+      return
+    }
+
     this.btnLoading = true;
     this.currentRequest = this.reqGeneric.post(environment.urlBase + '/esppvcn/v1.0.0/cartaovirtual/carga', this.form.value).subscribe(
       (res: any) => {

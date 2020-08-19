@@ -10,21 +10,22 @@
         <div class="d-flex align-items-end">
             <div class="form-group col-md-4" style="max-width: 225px;">
                 <label>Proxy (Remetente) <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="proxyde">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('proxyde')" formControlName="proxyde">
             </div>
             <div class="form-group col-md-4" style="max-width: 225px;">
                 <label>Proxy (Destinatário) <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" formControlName="proxyate">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('proxyate')" formControlName="proxyate">
             </div>
 
             <div class="form-group col-md-4" style="max-width: 175px;">
                 <label>Valor <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-sm" prefix="R$ " mask="separator.2" thousandSeparator="." formControlName="valor">
+                <input type="text" class="form-control form-control-sm" [ngClass]="setBorderColor('valor')" mask="separator.2" thousandSeparator="."
+                    formControlName="valor">
             </div>
 
 
             <div class="form-buttons" style="margin-bottom: 1em">
-                <app-btn-loading [loading]="btnLoading" [disable]="form.invalid || btnLoading" title="Transferir" (click)="onSubmit()">
+                <app-btn-loading [loading]="btnLoading" [disable]="btnLoading" title="Transferir" (click)="onSubmit()">
                 </app-btn-loading>
             </div>
         </div>

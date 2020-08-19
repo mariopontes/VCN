@@ -100,7 +100,6 @@ export class CartaoComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    console.log(this.form.value)
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       this.alertService.notify('warning', 'Preencha corretamente os campos inválidos.')

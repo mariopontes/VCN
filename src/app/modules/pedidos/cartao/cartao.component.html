@@ -10,7 +10,7 @@
             <div class="form-group col-md-3">
                 <label>Valor da carga <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" [ngClass]="fv.checkInput(form.get('valor'))" mask="separator.2"
-                    thousandSeparator="." formControlName="valor">
+                    thousandSeparator="." maxlength="10" formControlName="valor">
             </div>
 
             <div class="break-line"></div>

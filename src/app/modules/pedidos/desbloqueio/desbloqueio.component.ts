@@ -25,6 +25,7 @@ export class DesbloqueioComponent implements OnInit {
       proxy: ['1400101860799451', [Validators.required, Validators.min(3)]]
     })
   }
+
   onSubmit() {
     this.loading = true;
     this.requestGenericService.post(`${environment.urlBase}/esppvcn/v1.0.0/cartaovirtual/ativar`, this.form.value).subscribe(
